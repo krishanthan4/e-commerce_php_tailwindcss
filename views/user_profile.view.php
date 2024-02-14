@@ -20,14 +20,6 @@ require_once "./views/partials/nav.php";?>
             <span class="truncate"> Profile </span>
           </a>
 
-          <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
-            <!-- Heroicon name: outline/cog -->
-            <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span class="truncate"> My Sellings </span>
-          </a>
 
           <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
             <!-- Heroicon name: outline/key -->
@@ -84,6 +76,24 @@ require_once "./views/partials/nav.php";?>
                   <h2 id="payment-details-heading" class="text-lg leading-6 font-medium text-gray-900">Profile details</h2>
                   <p class="mt-1 text-sm text-gray-500">Update your billing information. Please note that updating your location could affect your tax rates.</p>
                 </div>
+                <!-- profile image start -->
+                <div class="sm:col-span-6 py-3">
+                
+                    <div class="mt-1 flex items-center">
+                      <img class="inline-block h-32 w-32 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80" alt="">
+                      <div class="ml-4 flex">
+                        <div class="relative bg-white py-2 px-3 border border-blue-gray-300 rounded-md shadow-sm flex items-center cursor-pointer hover:bg-blue-gray-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-blue-gray-50 focus-within:ring-blue-500">
+                          <label for="user-photo" class="relative text-sm font-medium text-blue-gray-900 pointer-events-none">
+                            <span>Change</span>
+                            <span class="sr-only"> user photo</span>
+                          </label>
+                          <input id="user-photo" name="user-photo" type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md">
+                        </div>
+                        <button type="button" class="ml-3 bg-transparent py-2 px-3 border border-transparent rounded-md text-sm font-medium text-blue-gray-900 hover:text-blue-gray-700 focus:outline-none focus:border-blue-gray-300 focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-gray-50 focus:ring-blue-500">Remove</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- profile image end -->
 
                 <div class="mt-6 grid grid-cols-4 gap-6">
                   <div class="col-span-4 sm:col-span-2">
@@ -105,19 +115,18 @@ require_once "./views/partials/nav.php";?>
                     <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
                   </div>
                   <div class="col-span-4 sm:col-span-2">
+                    <label for="email-address" class="block text-sm font-medium text-gray-700">Gender</label>
+                    <input disabled type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
+                  </div>
+                  <div class="col-span-4 sm:col-span-2">
                     <label for="email-address" class="block text-sm font-medium text-gray-700">Password</label>
-                    <div class="py-2" x-data="{ show: true }">
+                    <div class="" x-data="{ show: true }">
                
                 <div class="relative">
-                  <input disabled placeholder="" type="password" class="text-md block px-3 py-2 rounded-lg w-full 
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md
-                focus:placeholder-gray-500
-                focus:bg-white 
-                focus:border-gray-600  
-                focus:outline-none">
+                  <input disabled placeholder="" type="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
                   <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
 
-                    <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
+                    <svg class="h-6 text-gray-700 hidden" fill="none" @click="show = !show"
                       :class="{'hidden': !show, 'block':show }" xmlns="http://www.w3.org/2000/svg"
                       viewbox="0 0 576 512">
                       <path fill="currentColor"
@@ -147,7 +156,7 @@ require_once "./views/partials/nav.php";?>
                 </div>
               </div>
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button type="submit" class="bg-gray-800 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">Save</button>
+               
               </div>
             </div>
           </form>
@@ -181,29 +190,18 @@ require_once "./views/partials/nav.php";?>
                       <option>Mexico</option>
                     </select>
                   </div>
+                  <div class="col-span-4 sm:col-span-2">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Province</label>
+                    <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
+                      <option>United States</option>
+                      <option>Canada</option>
+                      <option>Mexico</option>
+                    </select>
+                  </div>
+          
 
                   <div class="col-span-4 sm:col-span-2">
-                    <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
-                    <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
-                  </div>
-                  <div class="col-span-4 sm:col-span-1">
-                    <label for="expiration-date" class="block text-sm font-medium text-gray-700">Expration date</label>
-                    <input type="text" name="expiration-date" id="expiration-date" autocomplete="cc-exp" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="MM / YY">
-                  </div>
-
-                  <div class="col-span-4 sm:col-span-1">
-                    <label for="security-code" class="flex items-center text-sm font-medium text-gray-700">
-                      <span>Security code</span>
-                      <!-- Heroicon name: solid/question-mark-circle -->
-                      <svg class="ml-1 flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-                      </svg>
-                    </label>
-                    <input type="text" name="security-code" id="security-code" autocomplete="cc-csc" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
-                  </div>
-
-                  <div class="col-span-4 sm:col-span-2">
-                    <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                    <label for="country" class="block text-sm font-medium text-gray-700">District</label>
                     <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
                       <option>United States</option>
                       <option>Canada</option>

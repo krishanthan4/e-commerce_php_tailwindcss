@@ -11,8 +11,14 @@ return [
     "/orderDetails"=>"./views/order_details.view.php",
     "/orderHistory"=>"./views/order_history.view.php",
     "/advancedSearch"=>"./views/new_arrivals.view.php",
-    "/paymentSettings"=>"./views/partials/user/payment_settings.php",
+    "/userProfile"=>"./views/user_profile.view.php",
     "/wishlist"=>"./views/wishlist.view.php",
+    "/myProducts"=>"./views/my_products.view.php",
+    "/addProduct"=>"./views/add_product.view.php",
+    "/invoice"=>"./views/invoice.view.php",
+    "/manageUsers"=>"./views/admin/manage_users.view.php",
+    "/messages"=>"./views/messages.view.php",
+    "/manageProduct"=>"./views/manage_product.view.php",
 
 ];
 
