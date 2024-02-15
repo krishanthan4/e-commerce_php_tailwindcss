@@ -100,10 +100,78 @@
 <img src="./public/images/visa.png" alt="">
 </div>
                   </div>  
-
+            
                 </div>
               </div>
-              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+              <div class="bg-white py-6 px-4 sm:p-6">
+              <div >
+                  <h2 id="payment-details-heading" class="text-lg leading-6 font-medium text-gray-900">Delivery Cost</h2>              
+                </div>
+                <div class="mt-6 grid grid-cols-4 gap-6 ">
+                <div class="col-span-4 sm:col-span-2">
+                    <label for="first-name" class="block text-sm font-medium mb-2 text-gray-700">Delivery Cost Within Colombo</label>
+                    <div class="flex">
+  <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 rounded-s-md">
+   Rs.
+  </span>
+  <input type="text" id="website-admin" class="rounded-none outline-none bg-gray-50 border text-gray-900 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 " placeholder="10000">
+  <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-md border-gray-300 rounded-s-0 ">
+.00
+  </span>
+</div>
+                  </div>  
+     
+                  <div class="col-span-4 sm:col-span-2">
+                    <label for="first-name" class="block text-sm font-medium mb-2 text-gray-700">Delivery Cost Out of Colombo</label>
+                    <div class="flex">
+  <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 rounded-s-md">
+   Rs.
+  </span>
+  <input type="text" id="website-admin" class="rounded-none outline-none bg-gray-50 border text-gray-900 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 " placeholder="10000">
+  <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-md border-gray-300 rounded-s-0 ">
+.00
+  </span>
+</div>
+                  </div>  
+                </div>
+            
+              </div>
+              <div class="bg-white py-6 px-4 sm:p-6">
+              <div >
+                  <h2 id="payment-details-heading" class="text-lg leading-6 font-medium text-gray-900">Product Description</h2>              
+                </div>
+                <div class="mt-6 grid grid-cols-1 gap-6 ">
+             <textarea name="" id=""  rows="5" class="outline-none w-full rounded-md border-2 border-gray-300" ></textarea>
+             <div >
+                  <h2 id="payment-details-heading" class="text-lg leading-6 font-medium text-gray-900">Product Images</h2>   
+                  <label for="first-name" class="block text-sm font-medium text-gray-500 mt-1">Add Atleast 1 Image of the Product</label>       
+                </div>
+             <!-- images adding section start -->
+             <div class="grid grid-cols-3 justify-center items-center gap-4">
+<!-- image div start -->
+             <div class=" ">
+  <img src="https://static.thenounproject.com/png/3407390-200.png" alt="" class="py-2 mb-3 border-2 rounded-md border-gray-300">
+  <input type="file">
+</div>
+<!-- image div end -->
+      <!-- image div start -->
+      <div class=" ">
+  <img src="https://static.thenounproject.com/png/3407390-200.png" alt="" class="py-2 mb-3 border-2 rounded-md border-gray-300">
+  <input type="file">
+</div>
+<!-- image div end --><!-- image div start -->
+             <div class=" ">
+  <img src="https://static.thenounproject.com/png/3407390-200.png" alt="" class="py-2 mb-3 border-2 rounded-md border-gray-300">
+  <input type="file">
+</div>
+<!-- image div end -->       
+     
+             </div>
+                </div>
+            
+              </div>
+          
+              <div class="px-4 py-3 bg-white text-right sm:px-6">
                 <button type="submit" class="bg-gray-800 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">Save</button>
               </div>
             </div>

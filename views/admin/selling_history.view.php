@@ -1,30 +1,31 @@
 <?php require_once "./views/partials/header.php";
-require_once "./views/partials/nav.php";
+require_once "./views/partials/nav.php";?>
 
-?>
-<div class="mx-12 my-3">
-<div class="w-full flex flex-row items-center ">
-   <!-- search bar -->
-<div class="flex md:w-[85%] min-w-[70%] me-5 md:me-0 flex-row items-center justify-center">
-<form class="flex w-full items-center  max-w-lg mx-auto">   
-    <div class="relative w-full">
-   
-        <input type="text" id="voice-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5  outline-none" placeholder="Search " required />
-      
-    </div>
-    <button type="submit" class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-        </svg>Search
-    </button>
-</form>
-</div>
+<h1 class="text-3xl py-3 ps-20">Selling History</h1>
 
-    <button class="bg-yellow-500 w-fit align-left text-white rounded-md lg:py-2.5 py-1 sm:text-base text-sm px-3">Add New Product</button>
-</div>
+<div class="py-5  bg-gray-100 mx-16 px-4 grid grid-cols-3 gap-6 ">
+    
+
+                  <div class="col-span-4 sm:col-span-1">
+                    <label for="first-name" class="block text-sm font-medium text-gray-700">Search By Invoice ID</label>
+                    <input type="number" name="first-name" id="first-name" autocomplete="cc-given-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
+                  </div> 
+                  <div class="col-span-3 sm:col-span-1">
+                    <label for="first-name" class="block text-sm font-medium text-gray-700">From Date</label>
+                    <input type="date" name="first-name" id="first-name" autocomplete="cc-given-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
+                  </div>
+                  <div class="col-span-3 sm:col-span-1">
+                    <label for="first-name" class="block text-sm font-medium text-gray-700">To Date</label>
+                   <div class="flex flex-row gap-3 justify-center items-center">
+                   <input type="date" name="first-name" id="first-name" autocomplete="cc-given-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
+
+                   <button class="bg-blue-500 rounded-md p-2 text-white">Find</button>
+                   </div>
+                </div> 
+               
 </div>
 <!-- product table start -->
-<div class="flex  flex-col">
+<div class="flex my-10 flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -33,47 +34,33 @@ require_once "./views/partials/nav.php";
                         <tr>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Product Image</th>
+                                Invoice ID</th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Title</th>
+                                Product</th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Price</th>
+                                Buyer</th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Amount</th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Quantity</th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Registered Date</th>
 
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-10 w-10">
-                                        <img class=" border border-gray-300 h-10 w-10 rounded-full"
-                                            src="https://www.gcentre.lk/wp-content/uploads/2021/12/SamsungGalaxyZFlip-5-1592474241.jpg.webp"
-                                            alt="">
-                                    </div>
-                             
-                                </div>
-                            </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1</td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-900">Galaxy Z 40</div>
                             
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rs. 1,250,000</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10 stocks available</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-04 00:40:22</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <button type="button"
-                                    class="inline-flex items-center px-6 py-2 border  border-red-600 text-[16px] font-bold rounded text-red-700 bg-white hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                    Block
-                                </button>
-                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sandul Tharun</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rs. 41500.00</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">4</td>
+                        
                         </tr>
                      
 
@@ -143,13 +130,5 @@ require_once "./views/partials/nav.php";
     </div>
 </div>
 <!-- product table start -->
-
-<hr class="mt-5 mb-5">
-<div>
-    
-</div>
-
 <?php require_once "./views/partials/footer.php";
-
-
 ?>

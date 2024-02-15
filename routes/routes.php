@@ -19,6 +19,10 @@ return [
     "/manageUsers"=>"./views/admin/manage_users.view.php",
     "/messages"=>"./views/messages.view.php",
     "/manageProduct"=>"./views/manage_product.view.php",
+    "/adminSignin"=>"./views/admin/admin_signin.view.php",
+    "/sellingHistory"=>"./views/admin/selling_history.view.php",
+    "/manageReviews"=>"./views/admin/manage_reviews.view.php",
+    "/writeReviews"=>"./views/write_reviews.view.php",
 
 ];
 
