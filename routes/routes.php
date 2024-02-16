@@ -7,7 +7,7 @@ return [
     "/signin"=>"./views/signin.view.php",
     "/signup"=>"./views/signup.view.php",
     "/cart"=>"./views/cart.view.php",
-    "/checkout"=>"./views/checkout.view.php",
+    "/checkout"=>".in/views/checkout.view.php",
     "/singleProduct"=>"./views/single_product.view.php",
     "/orderDetails"=>"./views/order_details.view.php",
     "/orderHistory"=>"./views/order_history.view.php",
@@ -29,7 +29,6 @@ return [
     
     
     "/alert"=>"./views/partials/alert.php",
-
-];
+    ];
 
 ?>

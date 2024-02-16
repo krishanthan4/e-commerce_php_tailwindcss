@@ -1,9 +1,3 @@
-
-<?php require_once "./views/partials/header.php";
- require_once "./views/partials/nav.php";
-
-?>
-
 <!-- search -->
 <div class="mx-2 sm:block hidden ">
     <div class="w-full flex flex-row justify-center items-center">
@@ -332,9 +326,3 @@
         <a href="#" class="inline-flex items-center px-4 h-10 border border-gray-300 rounded-md bg-white hover:bg-gray-100 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-offset-1 focus:ring-offset-indigo-600 focus:ring-indigo-600 focus:ring-opacity-25"> Next </a>
       </div>
     </nav>
-
-
-
-<?php require_once "./views/partials/footer.php";
-
-?>

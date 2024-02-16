@@ -4,7 +4,7 @@ return [
     "hostname"=>"localhost",
     "username"=>"root",
     "password"=>"Abcd!234",
-    "database"=>"viva_eshop",
+    "database"=>"eshop",
     "port"=> 3306,
 ];
 ?>

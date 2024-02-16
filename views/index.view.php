@@ -1,6 +1,11 @@
 <?php require_once "./views/partials/header.php";
 require_once "./views/partials/nav.php";?>
-  <main>
+ <?php 
+ if($_SESSION["user"]){
+require_once "./views/home.view.php";
+ }else{
+?>
+ <main>
     <!-- Hero -->
     <div class="flex flex-col border-b border-gray-200 lg:border-0">
 
@@ -302,6 +307,13 @@ require_once "./views/partials/nav.php";?>
       </div>
     </section>
   </main>
+<?php
+
+ }
+ 
+ ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 
   <?php require_once "./views/partials/footer.php";
 ?>

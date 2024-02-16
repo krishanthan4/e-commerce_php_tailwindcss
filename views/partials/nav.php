@@ -1,33 +1,11 @@
+
 <!-- Mobile Menu start -->
 <div id="MobileMenublack">
-    <!--
-      Mobile menu
+  
+    <div class="fixed inset-0 flex z-50 lg:hidden" role="dialog" aria-modal="true">
 
-      Off-canvas menu for mobile, show/hide based on off-canvas menu state.
-    -->
-    <div class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
-      <!--
-        Off-canvas menu overlay, show/hide based on off-canvas menu state.
-
-        Entering: "transition-opacity ease-linear duration-300"
-          From: "opacity-0"
-          To: "opacity-100"
-        Leaving: "transition-opacity ease-linear duration-300"
-          From: "opacity-100"
-          To: "opacity-0"
-      -->
       <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
 
-      <!--
-        Off-canvas menu, show/hide based on off-canvas menu state.
-
-        Entering: "transition ease-in-out duration-300 transform"
-          From: "-translate-x-full"
-          To: "translate-x-0"
-        Leaving: "transition ease-in-out duration-300 transform"
-          From: "translate-x-0"
-          To: "-translate-x-full"
-      -->
       <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto" id="MobileMenu">
         <div class="px-4 pt-5 pb-2 flex">
           <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400" id="closeMobileMenuButton" onclick="closeMobileMenu();">
@@ -160,7 +138,7 @@
           </div>
         </div>
 <?php 
-if($_SESSION["u"]){
+if($_SESSION["user"]){
 ?>
    <!-- Account -->
    <a href="#" class="p-2 text-gray-400 hover:text-gray-500 lg:ml-4">
@@ -223,10 +201,7 @@ if($_SESSION["u"]){
 
 
 
-  <?php 
-//   if($_SESSION["u"]){
 
-?>
 
 <!-- Header and big dropdown start -->
 <header class="relative z-30 bg-white">
@@ -269,17 +244,9 @@ if($_SESSION["u"]){
                 </div>
 
                 <!--
-                  'Women' flyout menu, show/hide based on flyout menu state.
-
-                  Entering: "transition ease-out duration-200"
-                    From: "opacity-0"
-                    To: "opacity-100"
-                  Leaving: "transition ease-in duration-150"
-                    From: "opacity-100"
-                    To: "opacity-0"
-                -->
+                  'Women' flyout menu, show/hide based on flyout menu state.-->
                 <div class="absolute z-20 top-full inset-x-0 bg-white text-sm text-gray-500 hidden" id="flyoutMenuWomen">
-                        <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
+              
                         <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
                         <!-- Fake border when menu is open -->
                         <div class="absolute inset-0 top-0 h-px max-w-7xl mx-auto px-8" aria-hidden="true">
@@ -341,7 +308,7 @@ if($_SESSION["u"]){
 
               <div class="flex">
                 <div class="relative flex">
-                  <!-- Item active: "text-indigo-600", Item inactive: "text-gray-700 hover:text-gray-800" -->
+      
                   <button type="button" class="text-gray-700 hover:text-gray-800 relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium" aria-expanded="false" onmouseover="flyoutMenumenHover();" onmouseleave="flyoutMenumenRemove();">
                     Men
                     <!-- Open: "bg-indigo-600", Closed: "" -->
@@ -349,22 +316,12 @@ if($_SESSION["u"]){
                   </button>
                 </div>
 
-                <!--
-                  'Men' flyout menu, show/hide based on flyout menu state.
-
-                  Entering: "transition ease-out duration-200"
-                    From: "opacity-0"
-                    To: "opacity-100"
-                  Leaving: "transition ease-in duration-150"
-                    From: "opacity-100"
-                    To: "opacity-0"
-                -->
-                <div class="absolute z-20 top-full inset-x-0 bg-white text-sm text-gray-500 hidden" id="flyoutMenumen">
-                        <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
+                <div class="absolute z-30 top-full inset-x-0 bg-white text-sm text-gray-500 hidden" id="flyoutMenumen">
+            
                         <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
-                        <!-- Fake border when menu is open -->
+              
                         <div class="absolute inset-0 top-0 h-px max-w-7xl mx-auto px-8" aria-hidden="true">
-                          <!-- Open: "bg-gray-200", Closed: "bg-transparent" -->
+                 
                           <div class="bg-transparent w-full h-px transition-colors ease-out duration-200"></div>
                         </div>
 
@@ -430,16 +387,35 @@ if($_SESSION["u"]){
 
           <div class="ml-auto flex items-center">
           <?php
-          if($_SESSION["u"]){
+          if($_SESSION["user"]){
 ?>
    <!-- Account -->
-   <a href="#" class="p-2 text-gray-400 hover:text-gray-500 lg:ml-4">
-              <span class="sr-only">Account</span>
-              <!-- Heroicon name: outline/user -->
-              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </a>
+
+   <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-1 focus:ring-gray-300 " type="button">
+<span class="sr-only">Open user menu</span>
+
+<img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+</button>
+
+<!-- Dropdown menu -->
+<div id="dropdownAvatar" class=" hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+   
+    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownUserAvatarButton">
+      <li>
+        <a href="/" class="block px-4 py-2 hover:bg-gray-100 ">Dashboard</a>
+      </li>
+      <li>
+        <a href="" class="block px-4 py-2 hover:bg-gray-100 d">Settings</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Earnings</a>
+      </li>
+    </ul>
+    <div class="py-2">
+      <a  onclick="signOut();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+    </div>
+</div>
+
 <?php
           }else{
           ?>  
@@ -486,12 +462,7 @@ if($_SESSION["u"]){
       </div>
     </nav>
   </header>
-<?php
-//   }else{
-?>
 
-<?php
-//   }
   
-  ?>
+  
   <script src="./public/js/nav.js"></script>

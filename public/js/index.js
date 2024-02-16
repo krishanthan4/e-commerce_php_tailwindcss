@@ -1,15 +1,3 @@
-function signUpToggle(){
-
-  const  signUpDiv = document.getElementById("signUpDiv");
-  const  signInDiv = document.getElementById("signInDiv");
-
-  signUpDiv.classList.toggle("hidden");
-  signUpDiv.classList.toggle("flex");
-  signInDiv.classList.toggle("hidden");
-
-// alert("Hello");
-}
-
 
 function signInProcess (){
 

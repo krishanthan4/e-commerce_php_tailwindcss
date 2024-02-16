@@ -1,9 +1,9 @@
-<?php require_once "./views/partials/header.php";
+ <?php require_once "./views/partials/header.php";
 require_once "./views/partials/nav.php";?>
 
 <div class="bg-white">
   <!--
-    Mobile menu
+    Mobile mepnu
 
     Off-canvas menu for mobile, show/hide based on off-canvas menu state.
   -->
