@@ -5,6 +5,7 @@ return [
     "/home"=>"./views/home.view.php",
     "/user"=>"./views/user.view.php",
     "/signin"=>"./views/signin.view.php",
+    "/signup"=>"./views/signup.view.php",
     "/cart"=>"./views/cart.view.php",
     "/checkout"=>"./views/checkout.view.php",
     "/singleProduct"=>"./views/single_product.view.php",
@@ -25,6 +26,9 @@ return [
     "/writeReviews"=>"./views/write_reviews.view.php",
     "/editProduct"=>"./views/edit_product.view.php",
     "/adminDashboard"=>"./views/admin/admin_dashboard.view.php",
+    
+    
+    "/alert"=>"./views/partials/alert.php",
 
 ];
 

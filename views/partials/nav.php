@@ -50,7 +50,7 @@
               <button id="tabs-1-tab-2" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-2" role="tab" type="button">Men</button>
             </div>
           </div>
-
+          </div>
           <!-- 'Women' tab panel, show/hide based on tab state. -->
           <div id="tabs-1-panel-1" class="px-4 py-6 space-y-12" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
             <div class="grid grid-cols-2 gap-x-4 gap-y-10">
@@ -179,7 +179,7 @@ if($_SESSION["u"]){
             <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Create an account</a>
           </div>
           <div class="flow-root">
-            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
+            <a href="/signin" class="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
           </div>
         </div>
 <?php
@@ -229,7 +229,7 @@ if($_SESSION["u"]){
 ?>
 
 <!-- Header and big dropdown start -->
-<header class="relative bg-white">
+<header class="relative z-30 bg-white">
     <p class="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
 
     <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -444,7 +444,7 @@ if($_SESSION["u"]){
           }else{
           ?>  
           <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-              <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
+              <a href="/signin" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
               <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
               <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
             </div>
@@ -472,7 +472,7 @@ if($_SESSION["u"]){
 
             <!-- Cart -->
             <div class="ml-4 flow-root lg:ml-6">
-              <a href="#" class="group -m-2 p-2 flex items-center">
+              <a href="/cart" class="group -m-2 p-2 flex items-center">
                 <!-- Heroicon name: outline/shopping-bag -->
                 <svg class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />

@@ -3,5 +3,8 @@
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0"
+  },
+  "dependencies": {
+    "@material-tailwind/html": "^2.2.2"
   }
 }
