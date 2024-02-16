@@ -41,7 +41,7 @@ require_once "./views/partials/nav.php";?>
               <div>
                 <h3 class="font-semibold text-white">
                   <a href="#">
-                    <span class="absolute inset-0"></span>
+                    <span class=" inset-0"></span>
                     New Arrivals
                   </a>
                 </h3>
