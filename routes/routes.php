@@ -23,6 +23,8 @@ return [
     "/sellingHistory"=>"./views/admin/selling_history.view.php",
     "/manageReviews"=>"./views/admin/manage_reviews.view.php",
     "/writeReviews"=>"./views/write_reviews.view.php",
+    "/editProduct"=>"./views/edit_product.view.php",
+    "/adminDashboard"=>"./views/admin/admin_dashboard.view.php",
 
 ];
 
