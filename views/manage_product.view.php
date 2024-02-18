@@ -4,7 +4,7 @@ require_once "./views/partials/nav.php";
 ?>
 <div class="mx-4 md:mx-12 my-3">
         <div class="w-full flex flex-row items-center">
-            <p class="text-xl md:block hidden md:ms-6">Manage Users</p>
+            <p class="text-xl md:block hidden md:ms-6">Manage Products</p>
 
             <!-- search bar -->
             <div class="flex md:w-[65%] my-6 min-w-[70%] me-5 md:me-0 flex-row items-center justify-center">
@@ -35,56 +35,49 @@ require_once "./views/partials/nav.php";
                     <table class="min-w-full divide-y divide-gray-200">
                         <!-- Table Headers -->
                         <thead class="bg-gray-50">
-                            <tr>
-                                <th scope="col"
-                                    class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    # </th>
-                                <th scope="col"
-                                    class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Profile Image </th>
-                                <th scope="col"
-                                    class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Username </th>
-                                <th scope="col"
-                                    class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Email </th>
-                                <th scope="col"
-                                    class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Mobile </th>
-                                <th scope="col"
-                                    class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Registered Date </th>
-                                <th scope="col"
-                                    class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Action </th>
+                        <tr>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Product Image</th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Title</th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Price</th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Quantity</th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Registered Date</th>
                             </tr>
                         </thead>
 
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <!-- Table Content -->
-                                <td class="px-6 py-4 whitespace-nowrap">1</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img class="border border-gray-300 h-10 w-10 rounded-full"
-                                                src="https://www.gcentre.lk/wp-content/uploads/2021/12/SamsungGalaxyZFlip-5-1592474241.jpg.webp"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">Ishara Deshan</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">ishara@gmail.com</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0711998396</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-04</td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex items-center justify-center">
-                                    <button type="button"
-                                        class="inline-flex items-center px-6 py-2 border border-red-600 text-[16px] font-bold rounded text-red-700 bg-white hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                        Block
-                                    </button>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10">
+                                        <img class=" border border-gray-300 h-10 w-10 rounded-full"
+                                            src="https://www.gcentre.lk/wp-content/uploads/2021/12/SamsungGalaxyZFlip-5-1592474241.jpg.webp"
+                                            alt="">
+                        </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">Galaxy Z 40</div>
+
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rs. 1,250,000</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10 stocks available</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-04 00:40:22</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <button type="button"
+                                    class="inline-flex items-center px-6 py-2 border  border-red-600 text-[16px] font-bold rounded text-red-700 bg-white hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                    Block
+                                </button>
+                            </td>
+                        </tr>
              
                         </tbody>
 

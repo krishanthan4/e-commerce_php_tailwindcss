@@ -219,7 +219,8 @@ include_once "./connection.php";
 <div id="modal-backdrop" class="fixed inset-0 bg-black bg-opacity-30  hidden"></div>
 <script src="./public/js/signIn.js"></script>
 <script src="./public/js/verifyCode.js"></script>
-<script src="./public/js/forgotPassword.js"></script>
+<!-- <script src="./public/js/forgotPassword.js"></script> -->
+
 
 
 
