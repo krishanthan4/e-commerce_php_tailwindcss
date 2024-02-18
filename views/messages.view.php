@@ -4,304 +4,338 @@
  require_once "./views/partials/nav.php";
 
 ?>
+<div class="">
 
-<div class="relative w-full ct-docs-disable-nav-fixed">
-    
-    <nav class="w-full z-50 flex flex-wrap items-center justify-between px-2 py-3 mb-0 bg-blueGray-800 shadow-md">
-       <div class="flex container mx-auto flex flex-wrap items-center justify-between px-0 lg:px-4">
-          <a class="text-sm font-bold leading-relaxed inline-flex items-center mr-4 py-2 whitespace-nowrap uppercase text-white" href="#/"><img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/creative-tim/logo.png" class="rounded-full mr-2" style="width: 30px;"><span>Creative Tim</span></a><button class="ml-auto cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-blueGray-400 rounded bg-transparent block outline-none focus:outline-none text-blueGray-300 lg:hidden" type="button"><i class="fas fa-bars"></i></button>
-          <div class="items-center w-full lg:flex lg:w-auto flex-grow duration-300 transition-all ease-in-out hidden">
-             <ul class="lg:items-center flex flex-wrap list-none pl-0 mb-0 flex flex-col list-none pl-0 mb-0 lg:flex-row">
-                <li><a href="javascript:;" class="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold transition-all duration-150 ease-in-out text-white">Elements</a></li>
-                <li><a href="javascript:;" class="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold transition-all duration-150 ease-in-out text-white">Sections</a></li>
-                <li class="relative">
-                   <a class="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold transition-all duration-150 ease-in-out text-white" href="javascript:;">Demo Pages <i class="ml-1 fas fa-caret-down transition-all duration-200 ease-in-out transform "></i></a>
-                   <div class="hidden  z-50">
-                      <div class="origin-top-right bg-white text-base float-left p-2 border list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-100 ease-in-out transform scale-95 opacity-0 absolute "><span class="uppercase font-bold text-xs px-3 pt-4 block w-full whitespace-nowrap bg-transparent text-blueGray-400">Group 1</span><a href="javascript:;" class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-blueGray-100 rounded transition-all duration-100">Demo Page 1</a><a href="javascript:;" class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-blueGray-100 rounded transition-all duration-100">Demo Page 2</a><span class="uppercase font-bold text-xs px-3 pt-4 block w-full whitespace-nowrap bg-transparent text-blueGray-400">Group 2</span><a href="javascript:;" class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-blueGray-100 rounded transition-all duration-100">Demo Page 3</a><a href="javascript:;" class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-blueGray-100 rounded transition-all duration-100">Demo Page 4</a><span class="uppercase font-bold text-xs px-3 pt-4 block w-full whitespace-nowrap bg-transparent text-blueGray-400">Group 3</span><a href="javascript:;" class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-blueGray-100 rounded transition-all duration-100">Demo Page 5</a><a href="javascript:;" class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-blueGray-100 rounded transition-all duration-100">Demo Page 6</a><span class="uppercase font-bold text-xs px-3 pt-4 block w-full whitespace-nowrap bg-transparent text-blueGray-400">Group 4</span><a href="javascript:;" class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-blueGray-100 rounded transition-all duration-100">Demo Page 7</a><a href="javascript:;" class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-blueGray-100 rounded transition-all duration-100">Demo Page 8</a></div>
-                   </div>
-                </li>
-             </ul>
-             <ul class="lg:items-center lg:ml-auto flex flex-wrap list-none pl-0 mb-0 flex flex-col list-none pl-0 mb-0 lg:flex-row">
-                <li><a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75 transition-all duration-150 ease-in-out text-white" href="https://www.facebook.com/CreativeTim" target="_blank"><i class="fab fa-facebook text-lg leading-lg opacity-75 hover:opacity-50 text-white"></i><span class="lg:hidden lg:ml-0 ml-2">Share on Facebook</span></a></li>
-                <li><a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75 transition-all duration-150 ease-in-out text-white" href="https://www.instagram.com/creativetimofficial/" target="_blank"><i class="fab fa-instagram text-lg leading-lg opacity-75 hover:opacity-50 text-white"></i><span class="lg:hidden lg:ml-0 ml-2">Follow on Instagram</span></a></li>
-                <li><a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75 transition-all duration-150 ease-in-out text-white" href="https://twitter.com/CreativeTim" target="_blank"><i class="fab fa-twitter text-lg leading-lg opacity-75 hover:opacity-50 text-white"></i><span class="lg:hidden lg:ml-0 ml-2">Tweet on Twitter</span></a></li>
-                <li><a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75 transition-all duration-150 ease-in-out text-white" href="https://github.com/creativetimofficial" target="_blank"><i class="fab fa-github text-lg leading-lg opacity-75 hover:opacity-50 text-white"></i><span class="lg:hidden lg:ml-0 ml-2">Star on Github</span></a></li>
-             </ul>
-          </div>
-       </div>
-    </nav>
-    
-    <section class="flex relative items-center p-0 min-h-screen-60 max-h-440-px">
-       <div class="absolute w-full h-full block bg-blueGray-900 opacity-75 z-1 left-0 top-0"></div>
-       <div class="bg-blueGray-800 w-full h-full absolute bg-cover bg-50 z-0" style="background-image: url('../../assets/img/broofoac.jpg');"></div>
-       <div class="relative h-full text-center text-white container mx-auto px-4 z-3 mb-16">
-          <div class="justify-center flex flex-wrap -mx-4">
-             <div class="px-12 px-4 relative w-full lg:w-6/12 w-full md:w-8/12">
-                <h1 class="text-4xl font-bold leading-tight">Chat / Messages</h1>
-                <p class="text-lg opacity-75 pt-2">Don’t be afraid to be wrong because you can’t learn anything from a compliment.</p>
-             </div>
-          </div>
-       </div>
-       <div class="w-full bottom-0 absolute z-2">
-          <div class="w-full pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px);">
-             <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                <polygon class="text-blueGray-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
-             </svg>
-          </div>
-       </div>
-    </section>
-    <section class="relative bg-blueGray-100 py-4 z-2">
-       <div class="container mx-auto px-4 -mt-24">
-          <div class="flex flex-wrap justify-center">
-             <div class="px-4 relative w-full lg:w-4/12">
-                <div class="flex justify-center bg-white border-0 shadow-lg rounded-lg relative flex flex-col min-w-0 break-words w-full mb-6">
-                   <div class="bg-blueGray-200 rounded-t-lg">
-                      <div class="my-4 mb-3 px-3 relative">
-                         <div class="relative flex w-full flex-wrap items-stretch mb-3"><span class="z-10 h-full flex absolute text-center text-blueGray-300 text-sm items-center w-8 pl-3"><i class="fas fa-search"></i></span><input placeholder="Search contact" class="border-transparent shadow px-3 py-2 text-sm  w-full placeholder-blueGray-200 text-blueGray-700 relative bg-white rounded-md outline-none focus:ring focus:ring-lightBlue-500 focus:ring-1 focus:border-lightBlue-500 border border-solid transition duration-200 pl-10 "></div>
-                      </div>
-                   </div>
-                   <div class="mt-4 flex pl-0 mb-3 flex-col">
-                      <div class="mx-4 rounded-md relative block my-1 bg-blueGray-800 text-white">
-                         <a href="javascript:;">
-                            <div class="flex items-center p-3">
-                               <img src="https://demos.creative-tim.com/notus-pro-react/static/media/christian.5e3b567c.jpg" class="rounded-full max-w-40-px" alt="...">
-                               <div class="flex-1">
-                                  <div class="justify-between items-center">
-                                     <h6 class="text-lg font-semibold leading-normal pl-3 inline-block">Charlie Watson</h6>
-                                     <p class="text-blueGray-200 uppercase font-bold text-xs inline-block float-right text-blueGray-200">Online<span class="p-1 mt-2 ml-2 text-xs font-semibold inline-block uppercase last:mr-0 mr-1 p-1 rounded bg-emerald-400"></span></p>
-                                     <div class="pl-3"><span class="block truncate text-blueGray-100 font-normal">Typing...</span></div>
-                                  </div>
-                               </div>
+<main class="max-w-7xl mx-auto pb-10 lg:py-12 lg:px-8">
+  <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
+  <?php require_once "./views/partials/user_profile_sidebar.php" ?>
+
+  <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
+
+  <div class="max-w-2xl  mx-auto px-4 lg:max-w-4xl lg:px-0">
+        <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Chat With Others</h1>
+        <p class="mt-2 text-sm text-gray-500">Update your billing information. Please note that updating your
+                    location could affect your tax rates..</p>
+      </div>
+
+<!-- component -->
+<div>
+        <div class="w-full h-32" style="background-color: #449388"></div>
+
+        <div class="container mx-auto" style="margin-top: -128px;">
+            <div class="py-6 h-screen">
+                <div class="flex border border-grey rounded shadow-lg h-full">
+
+                    <!-- Left -->
+                    <div class="w-1/3 border flex flex-col">
+
+                        <!-- Header -->
+                        <div class="py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center">
+                            <div>
+                                <img class="w-10 h-10 rounded-full" src="http://andressantibanez.com/res/avatar.png"/>
                             </div>
-                         </a>
-                      </div>
-                      <div class="mx-4 rounded-md relative block my-1 bg-blueGray-200 text-blueGray-800">
-                         <a href="javascript:;">
-                            <div class="flex items-center p-3">
-                               <img src="https://demos.creative-tim.com/notus-pro-react/static/media/team-2.b81557ef.jpg" class="rounded-full max-w-40-px" alt="...">
-                               <div class="flex-1">
-                                  <div class="justify-between items-center">
-                                     <h6 class="text-lg font-semibold leading-normal pl-3 inline-block">Jane Doe</h6>
-                                     <p class="text-blueGray-200 uppercase font-bold text-xs inline-block float-right text-blueGray-500">Online<span class="p-1 mt-2 ml-2 text-xs font-semibold inline-block uppercase last:mr-0 mr-1 p-1 rounded bg-emerald-400"></span></p>
-                                     <div class="pl-3"><span class="block truncate text-blueGray-500 font-normal">Computer users and programmers</span></div>
-                                  </div>
-                               </div>
+
+                            <div class="flex">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#727A7E" d="M12 20.664a9.163 9.163 0 0 1-6.521-2.702.977.977 0 0 1 1.381-1.381 7.269 7.269 0 0 0 10.024.244.977.977 0 0 1 1.313 1.445A9.192 9.192 0 0 1 12 20.664zm7.965-6.112a.977.977 0 0 1-.944-1.229 7.26 7.26 0 0 0-4.8-8.804.977.977 0 0 1 .594-1.86 9.212 9.212 0 0 1 6.092 11.169.976.976 0 0 1-.942.724zm-16.025-.39a.977.977 0 0 1-.953-.769 9.21 9.21 0 0 1 6.626-10.86.975.975 0 1 1 .52 1.882l-.015.004a7.259 7.259 0 0 0-5.223 8.558.978.978 0 0 1-.955 1.185z"></path></svg>
+                                </div>
+                                <div class="ml-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path opacity=".55" fill="#263238" d="M19.005 3.175H4.674C3.642 3.175 3 3.789 3 4.821V21.02l3.544-3.514h12.461c1.033 0 2.064-1.06 2.064-2.093V4.821c-.001-1.032-1.032-1.646-2.064-1.646zm-4.989 9.869H7.041V11.1h6.975v1.944zm3-4H7.041V7.1h9.975v1.944z"></path></svg>
+                                </div>
+                                <div class="ml-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".6" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
+                                </div>
                             </div>
-                         </a>
-                      </div>
-                      <div class="mx-4 rounded-md relative block my-1 bg-blueGray-200 text-blueGray-800">
-                         <a href="javascript:;">
-                            <div class="flex items-center p-3">
-                               <img src="https://demos.creative-tim.com/notus-pro-react/static/media/team-3.c5d0c11c.jpg" class="rounded-full max-w-40-px" alt="...">
-                               <div class="flex-1">
-                                  <div class="justify-between items-center">
-                                     <h6 class="text-lg font-semibold leading-normal pl-3 inline-block">Mila Skylar</h6>
-                                     <p class="text-blueGray-200 uppercase font-bold text-xs inline-block float-right text-blueGray-500">23 min ago</p>
-                                     <div class="pl-3"><span class="block truncate text-blueGray-500 font-normal">You can subscribe to receive weekly...</span></div>
-                                  </div>
-                               </div>
+                        </div>
+
+                        <!-- Search -->
+                        <div class="py-2 px-2 bg-grey-lightest">
+                            <input type="text" class="w-full px-2 py-2 text-sm" placeholder="Search or start new chat"/>
+                        </div>
+
+                        <!-- Contacts -->
+                        <div class="bg-grey-lighter flex-1 overflow-auto">
+                            <div class="px-3 flex items-center bg-grey-light cursor-pointer">
+                                <div>
+                                    <img class="h-12 w-12 rounded-full"
+                                         src="https://darrenjameseeley.files.wordpress.com/2014/09/expendables3.jpeg"/>
+                                </div>
+                                <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
+                                    <div class="flex items-bottom justify-between">
+                                        <p class="text-grey-darkest">
+                                            New Movie! Expendables 4
+                                        </p>
+                                        <p class="text-xs text-grey-darkest">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                    <p class="text-grey-dark mt-1 text-sm">
+                                        Get Andrés on this movie ASAP!
+                                    </p>
+                                </div>
                             </div>
-                         </a>
-                      </div>
-                      <div class="mx-4 rounded-md relative block my-1 bg-blueGray-200 text-blueGray-800">
-                         <a href="javascript:;">
-                            <div class="flex items-center p-3">
-                               <img src="https://demos.creative-tim.com/notus-pro-react/static/media/team-4.639c2559.jpg" class="rounded-full max-w-40-px" alt="...">
-                               <div class="flex-1">
-                                  <div class="justify-between items-center">
-                                     <h6 class="text-lg font-semibold leading-normal pl-3 inline-block">Sofia Scarlett</h6>
-                                     <p class="text-blueGray-200 uppercase font-bold text-xs inline-block float-right text-blueGray-500">1 hour ago</p>
-                                     <div class="pl-3"><span class="block truncate text-blueGray-500 font-normal">It’s an effective resource regardless...</span></div>
-                                  </div>
-                               </div>
+                            <div class="bg-white px-3 flex items-center hover:bg-grey-lighter cursor-pointer">
+                                <div>
+                                    <img class="h-12 w-12 rounded-full"
+                                         src="https://www.biography.com/.image/t_share/MTE5NDg0MDU1MTIyMTE4MTU5/arnold-schwarzenegger-9476355-1-402.jpg"/>
+                                </div>
+                                <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
+                                    <div class="flex items-bottom justify-between">
+                                        <p class="text-grey-darkest">
+                                            Arnold Schwarzenegger
+                                        </p>
+                                        <p class="text-xs text-grey-darkest">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                    <p class="text-grey-dark mt-1 text-sm">
+                                        I'll be back
+                                    </p>
+                                </div>
                             </div>
-                         </a>
-                      </div>
-                      <div class="mx-4 rounded-md relative block my-1 bg-blueGray-200 text-blueGray-800">
-                         <a href="javascript:;">
-                            <div class="flex items-center p-3">
-                               <img src="https://demos.creative-tim.com/notus-pro-react/static/media/team-1.26905a67.jpg" class="rounded-full max-w-40-px" alt="...">
-                               <div class="flex-1">
-                                  <div class="justify-between items-center">
-                                     <h6 class="text-lg font-semibold leading-normal pl-3 inline-block">Tom Klein</h6>
-                                     <p class="text-blueGray-200 uppercase font-bold text-xs inline-block float-right text-blueGray-500">Offline<span class="p-1 mt-2 ml-2 text-xs font-semibold inline-block uppercase last:mr-0 mr-1 p-1 rounded bg-red-500"></span></p>
-                                     <div class="pl-3"><span class="block truncate text-blueGray-500 font-normal">Be sure to check it out if your dev pro...</span></div>
-                                  </div>
-                               </div>
+                            <div class="bg-white px-3 flex items-center hover:bg-grey-lighter cursor-pointer">
+                                <div>
+                                    <img class="h-12 w-12 rounded-full"
+                                         src="https://www.famousbirthdays.com/headshots/russell-crowe-6.jpg"/>
+                                </div>
+                                <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
+                                    <div class="flex items-bottom justify-between">
+                                        <p class="text-grey-darkest">
+                                            Russell Crowe
+                                        </p>
+                                        <p class="text-xs text-grey-darkest">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                    <p class="text-grey-dark mt-1 text-sm">
+                                        Hold the line!
+                                    </p>
+                                </div>
                             </div>
-                         </a>
-                      </div>
-                   </div>
+                            <div class="bg-white px-3 flex items-center hover:bg-grey-lighter cursor-pointer">
+                                <div>
+                                    <img class="h-12 w-12 rounded-full"
+                                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGpYTzuO0zLW7yadaq4jpOz2SbsX90okb24Z9GtEvK6Z9x2zS5"/>
+                                </div>
+                                <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
+                                    <div class="flex items-bottom justify-between">
+                                        <p class="text-grey-darkest">
+                                            Tom Cruise
+                                        </p>
+                                        <p class="text-xs text-grey-darkest">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                    <p class="text-grey-dark mt-1 text-sm">
+                                        Show me the money!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bg-white px-3 flex items-center hover:bg-grey-lighter cursor-pointer">
+                                <div>
+                                    <img class="h-12 w-12 rounded-full"
+                                         src="https://www.biography.com/.image/t_share/MTE5NTU2MzE2MjE4MTY0NzQ3/harrison-ford-9298701-1-sized.jpg"/>
+                                </div>
+                                <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
+                                    <div class="flex items-bottom justify-between">
+                                        <p class="text-grey-darkest">
+                                            Harrison Ford
+                                        </p>
+                                        <p class="text-xs text-grey-darkest">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                    <p class="text-grey-dark mt-1 text-sm">
+                                        Tell Java I have the money
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Right -->
+                    <div class="w-2/3 border flex flex-col">
+
+                        <!-- Header -->
+                        <div class="py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center">
+                            <div class="flex items-center">
+                                <div>
+                                    <img class="w-10 h-10 rounded-full" src="https://darrenjameseeley.files.wordpress.com/2014/09/expendables3.jpeg"/>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-grey-darkest">
+                                        New Movie! Expendables 4
+                                    </p>
+                                    <p class="text-grey-darker text-xs mt-1">
+                                        Andrés, Tom, Harrison, Arnold, Sylvester
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".5" d="M15.9 14.3H15l-.3-.3c1-1.1 1.6-2.7 1.6-4.3 0-3.7-3-6.7-6.7-6.7S3 6 3 9.7s3 6.7 6.7 6.7c1.6 0 3.2-.6 4.3-1.6l.3.3v.8l5.1 5.1 1.5-1.5-5-5.2zm-6.2 0c-2.6 0-4.6-2.1-4.6-4.6s2.1-4.6 4.6-4.6 4.6 2.1 4.6 4.6-2 4.6-4.6 4.6z"></path></svg>
+                                </div>
+                                <div class="ml-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".5" d="M1.816 15.556v.002c0 1.502.584 2.912 1.646 3.972s2.472 1.647 3.974 1.647a5.58 5.58 0 0 0 3.972-1.645l9.547-9.548c.769-.768 1.147-1.767 1.058-2.817-.079-.968-.548-1.927-1.319-2.698-1.594-1.592-4.068-1.711-5.517-.262l-7.916 7.915c-.881.881-.792 2.25.214 3.261.959.958 2.423 1.053 3.263.215l5.511-5.512c.28-.28.267-.722.053-.936l-.244-.244c-.191-.191-.567-.349-.957.04l-5.506 5.506c-.18.18-.635.127-.976-.214-.098-.097-.576-.613-.213-.973l7.915-7.917c.818-.817 2.267-.699 3.23.262.5.501.802 1.1.849 1.685.051.573-.156 1.111-.589 1.543l-9.547 9.549a3.97 3.97 0 0 1-2.829 1.171 3.975 3.975 0 0 1-2.83-1.173 3.973 3.973 0 0 1-1.172-2.828c0-1.071.415-2.076 1.172-2.83l7.209-7.211c.157-.157.264-.579.028-.814L11.5 4.36a.572.572 0 0 0-.834.018l-7.205 7.207a5.577 5.577 0 0 0-1.645 3.971z"></path></svg>
+                                </div>
+                                <div class="ml-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".6" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Messages -->
+                        <div class="flex-1 overflow-auto" style="background-color: #DAD3CC">
+                            <div class="py-2 px-3">
+
+                                <div class="flex justify-center mb-2">
+                                    <div class="rounded py-2 px-4" style="background-color: #DDECF2">
+                                        <p class="text-sm uppercase">
+                                            February 20, 2018
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-center mb-4">
+                                    <div class="rounded py-2 px-4" style="background-color: #FCF4CB">
+                                        <p class="text-xs">
+                                            Messages to this chat and calls are now secured with end-to-end encryption. Tap for more info.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-2">
+                                    <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
+                                        <p class="text-sm text-teal">
+                                            Sylverter Stallone
+                                        </p>
+                                        <p class="text-sm mt-1">
+                                            Hi everyone! Glad you could join! I am making a new movie.
+                                        </p>
+                                        <p class="text-right text-xs text-grey-dark mt-1">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-2">
+                                    <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
+                                        <p class="text-sm text-purple">
+                                            Tom Cruise
+                                        </p>
+                                        <p class="text-sm mt-1">
+                                            Hi all! I have one question for the movie
+                                        </p>
+                                        <p class="text-right text-xs text-grey-dark mt-1">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-2">
+                                    <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
+                                        <p class="text-sm text-orange">
+                                            Harrison Ford
+                                        </p>
+                                        <p class="text-sm mt-1">
+                                            Again?
+                                        </p>
+                                        <p class="text-right text-xs text-grey-dark mt-1">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-2">
+                                    <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
+                                        <p class="text-sm text-orange">
+                                            Russell Crowe
+                                        </p>
+                                        <p class="text-sm mt-1">
+                                            Is Andrés coming for this one?
+                                        </p>
+                                        <p class="text-right text-xs text-grey-dark mt-1">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-2">
+                                    <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
+                                        <p class="text-sm text-teal">
+                                            Sylverter Stallone
+                                        </p>
+                                        <p class="text-sm mt-1">
+                                            He is. Just invited him to join.
+                                        </p>
+                                        <p class="text-right text-xs text-grey-dark mt-1">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-end mb-2">
+                                    <div class="rounded py-2 px-3" style="background-color: #E2F7CB">
+                                        <p class="text-sm mt-1">
+                                            Hi guys.
+                                        </p>
+                                        <p class="text-right text-xs text-grey-dark mt-1">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-end mb-2">
+                                    <div class="rounded py-2 px-3" style="background-color: #E2F7CB">
+                                        <p class="text-sm mt-1">
+                                            Count me in
+                                        </p>
+                                        <p class="text-right text-xs text-grey-dark mt-1">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-2">
+                                    <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
+                                        <p class="text-sm text-purple">
+                                            Tom Cruise
+                                        </p>
+                                        <p class="text-sm mt-1">
+                                            Get Andrés on this movie ASAP!
+                                        </p>
+                                        <p class="text-right text-xs text-grey-dark mt-1">
+                                            12:45 pm
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Input -->
+                        <div class="bg-grey-lighter px-4 py-4 flex items-center">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path opacity=".45" fill="#263238" d="M9.153 11.603c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962zm-3.204 1.362c-.026-.307-.131 5.218 6.063 5.551 6.066-.25 6.066-5.551 6.066-5.551-6.078 1.416-12.129 0-12.129 0zm11.363 1.108s-.669 1.959-5.051 1.959c-3.505 0-5.388-1.164-5.607-1.959 0 0 5.912 1.055 10.658 0zM11.804 1.011C5.609 1.011.978 6.033.978 12.228s4.826 10.761 11.021 10.761S23.02 18.423 23.02 12.228c.001-6.195-5.021-11.217-11.216-11.217zM12 21.354c-5.273 0-9.381-3.886-9.381-9.159s3.942-9.548 9.215-9.548 9.548 4.275 9.548 9.548c-.001 5.272-4.109 9.159-9.382 9.159zm3.108-9.751c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962z"></path></svg>
+                            </div>
+                            <div class="flex-1 mx-4">
+                                <input class="w-full border rounded px-2 py-2" type="text"/>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".45" d="M11.999 14.942c2.001 0 3.531-1.53 3.531-3.531V4.35c0-2.001-1.53-3.531-3.531-3.531S8.469 2.35 8.469 4.35v7.061c0 2.001 1.53 3.531 3.53 3.531zm6.238-3.53c0 3.531-2.942 6.002-6.237 6.002s-6.237-2.471-6.237-6.002H3.761c0 4.001 3.178 7.297 7.061 7.885v3.884h2.354v-3.884c3.884-.588 7.061-3.884 7.061-7.885h-2z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-             </div>
-             <div class="pl-6 lg:text-right lg:self-center px-4 relative w-full lg:w-8/12">
-                <div class="flex justify-center border-0 flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg">
-                   <div class="bg-blueGray-800 inline-block rounded-t-lg px-5 py-3">
-                      <div class="py-4 flex flex-row justify-between">
-                         <div class="flex items-center">
-                            <img src="https://demos.creative-tim.com/notus-pro-react/static/media/christian.5e3b567c.jpg" class="rounded-full mr-4 max-w-64-px" alt="...">
-                            <div class="text-left flex-1">
-                               <div class="justify-between items-center">
-                                  <h5 class="text-2xl text-white font-semibold leading-tight">Charlie Watson</h5>
-                                  <span class="text-blueGray-500"><span class="mr-2">last seen today at 7:38 AM</span></span>
-                               </div>
-                            </div>
-                         </div>
-                         <div><button class="inline-block outline-none focus:outline-none align-middle transition-all duration-150 ease-in-out uppercase border border-solid font-bold last:mr-0 mr-2  text-white border-white active:bg-blueGray-100 active:border-blueGray-100 active:text-blueGray-800 text-xs px-3 py-2 shadow hover:shadow-md rounded-md">edit</button><button class="inline-block outline-none focus:outline-none align-middle transition-all duration-150 ease-in-out uppercase border border-solid font-bold last:mr-0 mr-2  text-white border-white active:bg-blueGray-100 active:border-blueGray-100 active:text-blueGray-800 text-xs px-3 py-2 shadow hover:shadow-md rounded-md">call</button><button class="inline-block outline-none focus:outline-none align-middle transition-all duration-150 ease-in-out uppercase border border-solid font-bold last:mr-0 mr-2  text-blueGray-800 bg-white border-white active:bg-blueGray-100 active:border-blueGray-100 text-xs px-3 py-2 shadow hover:shadow-md rounded-md">video</button></div>
-                      </div>
-                   </div>
-                   <div class="px-4 flex flex-col-reverse flex-auto max-h-screen-70 overflow-auto overflow-x-hidden bg-blueGray-200">
-                      <div class="justify-start text-left flex flex-wrap -mx-4">
-                         <a href="pablo">
-                            <div class="px-4 relative w-auto">
-                               <div class="relative flex px-4 py-2 my-4 break-words shadow-lg rounded-lg bg-blueGray-100 text-blueGray-800">
-                                  <div>
-                                     <p class="mb-1 text-lg leading-relaxed font-normal">Typing...</p>
-                                     <p class="block uppercase font-semibold opacity-75 text-sm"></p>
-                                  </div>
-                               </div>
-                            </div>
-                         </a>
-                      </div>
-                      <div class="justify-end text-right flex flex-wrap -mx-4">
-                         <a href="javascript:;">
-                            <div class="px-4 relative w-auto">
-                               <div class="relative flex px-4 py-2 my-4 break-words shadow-lg rounded-lg bg-lightBlue-500 text-white">
-                                  <div>
-                                     <p class="mb-1 text-lg leading-relaxed font-normal">At the end of the day... the native dev apps is where users are</p>
-                                     <p class="block uppercase font-semibold opacity-75 text-sm"><span class="mr-2">4:47am</span><i class="fas fa-check"></i></p>
-                                  </div>
-                               </div>
-                            </div>
-                         </a>
-                      </div>
-                      <div class="justify-start text-left flex flex-wrap -mx-4">
-                         <a href="javascript:;">
-                            <div class="px-4 relative w-auto">
-                               <div class="relative flex px-4 py-2 my-4 break-words shadow-lg rounded-lg bg-blueGray-100 text-blueGray-800">
-                                  <div>
-                                     <img src="https://demos.creative-tim.com/notus-pro-react/static/media/img-1.f2fd521a.jpg" class="rounded my-2 max-w-250-px" alt="...">
-                                     <p class="block uppercase font-semibold opacity-75 text-sm"><i class="far fa-clock mr-2"></i><span>4:46am</span></p>
-                                  </div>
-                               </div>
-                            </div>
-                         </a>
-                      </div>
-                      <div class="justify-end text-right flex flex-wrap -mx-4">
-                         <a href="javascript:;">
-                            <div class="px-4 relative w-auto">
-                               <div class="relative flex px-4 py-2 my-4 break-words shadow-lg rounded-lg bg-lightBlue-500 text-white">
-                                  <div>
-                                     <p class="mb-1 text-lg leading-relaxed font-normal">Awesome, blog is important source material for anyone who creates apps?</p>
-                                     <p class="mb-1 text-lg leading-relaxed font-normal">Because these blogs offer a lot of information about website development.</p>
-                                     <p class="block uppercase font-semibold opacity-75 text-sm"><span class="mr-2">4:46am</span><i class="fas fa-check"></i></p>
-                                  </div>
-                               </div>
-                            </div>
-                         </a>
-                      </div>
-                      <div class="justify-start text-left flex flex-wrap -mx-4">
-                         <a href="javascript:;">
-                            <div class="px-4 relative w-auto">
-                               <div class="relative flex px-4 py-2 my-4 break-words shadow-lg rounded-lg bg-blueGray-100 text-blueGray-800">
-                                  <div>
-                                     <p class="mb-1 text-lg leading-relaxed font-normal">You can easily get it; The content here is all free</p>
-                                     <p class="block uppercase font-semibold opacity-75 text-sm"><i class="far fa-clock mr-2"></i><span>4:45am</span></p>
-                                  </div>
-                               </div>
-                            </div>
-                         </a>
-                      </div>
-                      <div class="justify-end text-right flex flex-wrap -mx-4">
-                         <a href="javascript:;">
-                            <div class="px-4 relative w-auto">
-                               <div class="relative flex px-4 py-2 my-4 break-words shadow-lg rounded-lg bg-lightBlue-500 text-white">
-                                  <div>
-                                     <p class="mb-1 text-lg leading-relaxed font-normal">Excellent, I want it now!</p>
-                                     <p class="block uppercase font-semibold opacity-75 text-sm"><span class="mr-2">4:44am</span><i class="fas fa-check"></i></p>
-                                  </div>
-                               </div>
-                            </div>
-                         </a>
-                      </div>
-                      <div class="justify-start text-left flex flex-wrap -mx-4">
-                         <a href="javascript:;">
-                            <div class="px-4 relative w-auto">
-                               <div class="relative flex px-4 py-2 my-4 break-words shadow-lg rounded-lg bg-blueGray-100 text-blueGray-800">
-                                  <div>
-                                     <p class="mb-1 text-lg leading-relaxed font-normal">Yeah! Responsive Design is geared towards those trying to build web apps</p>
-                                     <p class="block uppercase font-semibold opacity-75 text-sm"><i class="far fa-clock mr-2"></i><span>4:31am</span></p>
-                                  </div>
-                               </div>
-                            </div>
-                         </a>
-                      </div>
-                      <div class="mt-6 flex flex-wrap -mx-4">
-                         <div class="px-4 relative w-full lg:w-full"><span class="text-blueGray-500 font-semibold flex justify-center mt-4">Wed, 3:27pm</span></div>
-                      </div>
-                      <div class="justify-end text-right flex flex-wrap -mx-4">
-                         <a href="javascript:;">
-                            <div class="px-4 relative w-auto">
-                               <div class="relative flex px-4 py-2 my-4 break-words shadow-lg rounded-lg bg-lightBlue-500 text-white">
-                                  <div>
-                                     <p class="mb-1 text-lg leading-relaxed font-normal">Can it generate daily design links that include essays and data visualizations?</p>
-                                     <p class="block uppercase font-semibold opacity-75 text-sm"><span class="mr-2">3:30am</span><i class="fas fa-check"></i></p>
-                                  </div>
-                               </div>
-                            </div>
-                         </a>
-                      </div>
-                      <div class="justify-start text-left flex flex-wrap -mx-4">
-                         <a href="javascript:;">
-                            <div class="px-4 relative w-auto">
-                               <div class="relative flex px-4 py-2 my-4 break-words shadow-lg rounded-lg bg-blueGray-100 text-blueGray-800">
-                                  <div>
-                                     <p class="mb-1 text-lg leading-relaxed font-normal">It contains a lot of good lessons about effective practices</p>
-                                     <p class="block uppercase font-semibold opacity-75 text-sm"><i class="far fa-clock mr-2"></i><span>3:14am</span></p>
-                                  </div>
-                               </div>
-                            </div>
-                         </a>
-                      </div>
-                   </div>
-                   <div class="bg-white rounded-b-lg px-4 py-3 border-t border-blueGray-300">
-                      <div class="my-4 mb-3 pt-0 relative">
-                         <div class="mb-3 pt-0"><input placeholder="Your message" class="border-blueGray-300 px-3 py-2 text-sm  w-full placeholder-blueGray-200 text-blueGray-700 relative bg-white rounded-md outline-none focus:ring focus:ring-lightBlue-500 focus:ring-1 focus:border-lightBlue-500 border border-solid transition duration-200 "></div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
-    </section>
-    <div class="pt-12 pb-4 border-b bg-blueGray-100">
-       <div class="container mx-auto px-4">
-          <div class="justify-between items-center flex flex-wrap -mx-4">
-             <div class="px-4 relative w-full lg:w-6/12">
-                <h3 class="text-xl font-bold leading-normal mt-0">Thank you for supporting us!</h3>
-                <h4 class="leading-normal mt-1 mb-2 text-blueGray-500">Let's get in touch on any of these platforms.</h4>
-             </div>
-             <div class="text-right pr-6 px-4 relative w-full lg:w-6/12"><button class="inline-block outline-none focus:outline-none align-middle transition-all duration-150 ease-in-out uppercase border border-solid font-bold last:mr-0 mr-2  text-blueGray-800 bg-white border-white active:bg-blueGray-100 active:border-blueGray-100 text-xs px-3 py-2 shadow hover:shadow-md rounded-md"><i class="fab fa-twitter"></i></button><button class="inline-block outline-none focus:outline-none align-middle transition-all duration-150 ease-in-out uppercase border border-solid font-bold last:mr-0 mr-2  text-blueGray-800 bg-white border-white active:bg-blueGray-100 active:border-blueGray-100 text-xs px-3 py-2 shadow hover:shadow-md rounded-md"><i class="fab fa-facebook"></i></button><button class="inline-block outline-none focus:outline-none align-middle transition-all duration-150 ease-in-out uppercase border border-solid font-bold last:mr-0 mr-2  text-blueGray-800 bg-white border-white active:bg-blueGray-100 active:border-blueGray-100 text-xs px-3 py-2 shadow hover:shadow-md rounded-md"><i class="fab fa-dribbble"></i></button><button class="inline-block outline-none focus:outline-none align-middle transition-all duration-150 ease-in-out uppercase border border-solid font-bold last:mr-0 mr-2  text-blueGray-800 bg-white border-white active:bg-blueGray-100 active:border-blueGray-100 text-xs px-3 py-2 shadow hover:shadow-md rounded-md"><i class="fab fa-github"></i></button></div>
-          </div>
-       </div>
+            </div>
+        </div>
     </div>
-    <footer class="bg-blueGray-100">
-       <div class="container mx-auto px-4">
-          <div class="items-center xl:justify-between flex flex-wrap -mx-4">
-             <div class="px-4 relative w-full xl:w-6/12 w-full sm:w-full">
-                <div class="text-center xl:text-left py-6 text-sm text-blueGray-500">Copyright © 2021<a href="https://www.creative-tim.com" target="_blank" class="font-semibold ml-1">Creative Tim</a>. All rights reserved.</div>
-             </div>
-             <div class="px-4 relative w-full xl:w-6/12 w-full sm:w-full">
-                <ul class="justify-center xl:justify-end mx-auto flex flex-wrap list-none pl-0 mb-0">
-                   <li><a href="https://www.creative-tim.com" target="_blank" class="text-sm block px-4 bg-transparent no-underline text-blueGray-500 hover:text-blueGray-700 py-4 md:py-6 mx-auto">Creative Tim</a></li>
-                   <li><a href="https://www.creative-tim.com/presentation" target="_blank" class="text-sm block px-4 bg-transparent no-underline text-blueGray-500 hover:text-blueGray-700 py-4 md:py-6 mx-auto">About us</a></li>
-                   <li><a href="https://www.creative-tim.com/blog" target="_blank" class="text-sm block px-4 bg-transparent no-underline text-blueGray-500 hover:text-blueGray-700 py-4 md:py-6 mx-auto">Blog</a></li>
-                </ul>
-             </div>
-          </div>
-       </div>
-    </footer>
- </div>
+
+  </div></div></main></div>
 <?php require_once "./views/partials/footer.php";
 
 

@@ -5,7 +5,7 @@
                             <h1 class="block text-2xl font-bold text-gray-800 dark:text-black">Forgot password?</h1>
                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
                                 Remember your password?
-                                <a class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" href="#"
+                                <a class="cursor-pointer font-semibold leading-6 text-indigo-600 hover:text-indigo-500" 
                                     onclick="hideForgotPasswordModal();">
                                     Sign In here
                                 </a>
@@ -28,7 +28,7 @@
                             <button type="button"
                                 class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-white dark:hover:text-white dark:bg-red-500 dark:hover:bg-red-600"
                                 id="msgbtn2" data-collapse-toggle="toast-default" aria-label="Close"
-                                onclick="closeBtn1();">
+                                onclick="hideForgotPasswordModal();">
                                 <span class="sr-only">Close</span>
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,6 @@
                         </div>
 
                         <div class="mt-5">
-                            <form>
                                 <div class="grid gap-y-4">
                                     <div>
                                         <div class="flex gap-2 mt-2">
@@ -48,7 +47,7 @@
                                                 <label class="block text-sm font-medium leading-6 text-gray-900">New
                                                     Password</label>
                                                 <div class="mt-2 relative">
-                                                    <input id="passwordInput" type="password"
+                                                    <input id="password" type="password"
                                                         autocomplete="new-password" placeholder="ex:- ****"
                                                         maxlength="18"
                                                         class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -67,7 +66,7 @@
                                                 <label class="block text-sm font-medium leading-6 text-gray-900">Re-type
                                                     Password</label>
                                                 <div class="mt-2 relative">
-                                                    <input id="passwordInput1" type="password"
+                                                    <input id="retype_password" type="password"
                                                         autocomplete="new-password" placeholder="ex:- ****"
                                                         maxlength="18"
                                                         class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -83,14 +82,6 @@
                                             </div>
                                         </div>
 
-
-                                        <div class="col-span-12 mt-2 ">
-                                            <label
-                                                class="block text-sm font-medium leading-6 text-gray-900">Verification
-                                                Code</label>
-                                            <input type="text" id="vcode"
-                                                class="block pl-2 w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        </div>
 
                                     </div>
                                     <div class="flex gap-2 mt-2">
@@ -108,7 +99,6 @@
                                     </div>
 
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>

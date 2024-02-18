@@ -211,69 +211,16 @@ include_once "./connection.php";
 <!--alert model -->
 
 <!-- forgotPassword Model -->
-<?php require_once "./views/partials/forgot_password_model.view.php"; ?>
+<?php require_once "./views/partials/verify_code_model.php"; ?>
+<?php require_once "./views/partials/forgot_password_model.php"; ?>
 <!-- forgotPassword Model -->
 
 <!-- black cover -->
-<div id="modal-backdrop" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-md hidden"></div>
+<div id="modal-backdrop" class="fixed inset-0 bg-black bg-opacity-30  hidden"></div>
 <script src="./public/js/signIn.js"></script>
+<script src="./public/js/verifyCode.js"></script>
 <script src="./public/js/forgotPassword.js"></script>
-<script src="./public/js/resetPassword.js"></script>
 
-<script>
-  function showForgotPasswordModal() {
-
-    var modal = document.getElementById("fpmodal");
-    var backdrop = document.getElementById("modal-backdrop");
-
-
-    modal.classList.remove("hidden");
-    backdrop.classList.remove("hidden");
-
-
-    document.body.classList.add("overflow-hidden");
-  }
-
-
-  function hideForgotPasswordModal() {
-
-    var modal = document.getElementById("fpmodal");
-    var backdrop = document.getElementById("modal-backdrop");
-
-    modal.classList.add("hidden");
-    backdrop.classList.add("hidden");
-
-
-    document.body.classList.remove("overflow-hidden");
-  }
-
-
-
-  let mouseDown = false;
-
-  function handleMouseDown(inputId) {
-    mouseDown = true;
-    togglePasswordVisibility(inputId);
-  }
-
-  function handleMouseUp(inputId) {
-    mouseDown = false;
-    togglePasswordVisibility(inputId);  // Call the same function for both mouse down and up
-  }
-
-  function togglePasswordVisibility(inputId) {
-    const passwordInput = document.getElementById(inputId);
-    const icon = passwordInput.nextElementSibling;
-
-    if (passwordInput.type === 'password' && mouseDown) {
-      passwordInput.type = 'text';
-      icon.textContent = 'visibility';
-    } else {
-      passwordInput.type = 'password';
-      icon.textContent = 'visibility_off';
-    }
-  }
-</script>
 
 
 

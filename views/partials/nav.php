@@ -1,3 +1,9 @@
+<?php 
+    require_once "./connection.php";
+    require_once "./function.php";
+    
+    ?>
+
 
 <!-- Mobile Menu start -->
 <div id="MobileMenublack">
@@ -125,48 +131,24 @@
                 <p aria-hidden="true" class="mt-1 text-sm text-gray-500">Shop now</p>
               </div>
             </div>
+          </div> 
+        
+
+        <div class="border-t flex flex-col items-center justify-center border-gray-200 py-6 px-4 space-y-6">
+          <div class="flow-root">
+            <a href="#" class=" p-2 block font-medium text-gray-900">Company</a>
           </div>
+
+          <div class="flow-root">
+            <a href="#" class=" p-2 block font-medium text-gray-900">Stores</a>
+          </div>
+<?php require_once "./views/partials/nav_profile.php"?>
+
         </div>
-
-        <div class="border-t border-gray-200 py-6 px-4 space-y-6">
-          <div class="flow-root">
-            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Company</a>
-          </div>
-
-          <div class="flow-root">
-            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Stores</a>
-          </div>
-        </div>
-<?php 
-if($_SESSION["user"]){
-?>
-   <!-- Account -->
-   <a href="#" class="p-2 text-gray-400 hover:text-gray-500 lg:ml-4">
-              <span class="sr-only">Account</span>
-              <!-- Heroicon name: outline/user -->
-              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </a>
-<?php
-
-}else{
-?>
-    <div class="border-t border-gray-200 py-6 px-4 space-y-6">
-          <div class="flow-root">
-            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Create an account</a>
-          </div>
-          <div class="flow-root">
-            <a href="/signin" class="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
-          </div>
-        </div>
-<?php
-}
-
-?>
+        
     
 
-        <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+        <div class="border-t text-center border-gray-200 py-6 px-4 space-y-6">
           <!-- Currency selector -->
           <form>
             <div class="inline-block">
@@ -198,14 +180,9 @@ if($_SESSION["user"]){
   </div>
 
 
-
-
-
-
-
-<!-- Header and big dropdown start -->
+<!-- Main Nav Bar start -->
 <header class="relative z-30 bg-white">
-    <p class="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
+    <p class="bg-indigo-600 h-10  flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
 
     <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="border-b border-gray-200">
@@ -377,7 +354,7 @@ if($_SESSION["user"]){
                       </div>
               </div>
 
-              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Company</a>
+              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"></a>
 
               <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
             </div>
@@ -387,44 +364,124 @@ if($_SESSION["user"]){
 
           <div class="ml-auto flex items-center">
           <?php
-          if($_SESSION["user"]){
+        
+          if(isset($_SESSION["user"]) && $_SESSION["user"]){
+
+$result =  Database::search("SELECT * FROM `profile_img` WHERE `user_email`='".$_SESSION["user"]["email"]."'");
+
+if($result->num_rows!==0){
+  $path = $result->fetch_assoc();
+
+            ?>
+               <!-- Account -->
+            
+               <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class=" text-sm bg-gray-800 rounded-full md:block hidden md:me-0 focus:ring-1 focus:ring-gray-300 " type="button">
+            
+               <img class=" border-2 border-gray-500 object-center object-cover w-10 h-10 rounded-full" src="<?= $path["path"]?>" alt="<?= $path["user_email"]?>">
+            </button>
+
+                  <!-- Dropdown menu -->
+                  <div id="dropdownAvatar" class=" hidden z-30 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+               
+       
+                  <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownUserAvatarButton">
+                <li class=" flex items-center hover:bg-gray-100">
+                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 ml-2"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16"
+                    height="16" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <a href="/userProfile" class="block px-4 py-2 hover:bg-gray-100 ">Profile</a>
+                </li>
+                <li class=" flex items-center hover:bg-gray-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8.01 4.555 4.005 7.11 8.01 9.665 4.005 12.22 0 9.651l4.005-2.555L0 4.555 4.005 2zm-4.026 8.487 4.006-2.555 4.005 2.555-4.005 2.555zm4.026-3.39 4.005-2.556L8.01 4.555 11.995 2 16 4.555 11.995 7.11 16 9.665l-4.005 2.555z" />
+                  </svg>
+                  <a href="/myProducts" class="block px-4 py-2 hover:bg-gray-100 d">My Products</a>
+                </li>
+                <li class="  flex items-center hover:bg-gray-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-chat-left-dots text-gray-400 ml-2 group-hover:text-gray-500 flex-shrink-0 "
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                    <path
+                      d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                  </svg>
+                  </svg>
+                  <a href="/messages" class="block px-4 py-2 ">Messages</a>
+                </li>
+              </ul>
+               <div class="py-2">
+                 <a  onclick="signOut();" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+               </div>
+           </div>
+            <?php
+           } else{
 ?>
-   <!-- Account -->
+     <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="md:block z-30 hidden text-sm bg-white rounded-full md:me-0 focus:ring-1 focus:ring-gray-300 " type="button">
+  
+     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle text-gray-700" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+         </button>
 
-   <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-1 focus:ring-gray-300 " type="button">
-<span class="sr-only">Open user menu</span>
-
-<img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
-</button>
-
-<!-- Dropdown menu -->
-<div id="dropdownAvatar" class=" hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
-   
-    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownUserAvatarButton">
-      <li>
-        <a href="/" class="block px-4 py-2 hover:bg-gray-100 ">Dashboard</a>
-      </li>
-      <li>
-        <a href="" class="block px-4 py-2 hover:bg-gray-100 d">Settings</a>
-      </li>
-      <li>
-        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Earnings</a>
-      </li>
-    </ul>
-    <div class="py-2">
-      <a  onclick="signOut();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
-    </div>
-</div>
-
+              <!-- Dropdown menu -->
+              <div id="dropdownAvatar" class=" hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+               
+            
+              <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownUserAvatarButton">
+                <li class=" flex items-center hover:bg-gray-100">
+                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 ml-2"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16"
+                    height="16" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <a href="/userProfile" class="block px-4 py-2 hover:bg-gray-100 ">Profile</a>
+                </li>
+                <li class=" flex items-center hover:bg-gray-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8.01 4.555 4.005 7.11 8.01 9.665 4.005 12.22 0 9.651l4.005-2.555L0 4.555 4.005 2zm-4.026 8.487 4.006-2.555 4.005 2.555-4.005 2.555zm4.026-3.39 4.005-2.556L8.01 4.555 11.995 2 16 4.555 11.995 7.11 16 9.665l-4.005 2.555z" />
+                  </svg>
+                  <a href="/myProducts" class="block px-4 py-2 hover:bg-gray-100 d">My Products</a>
+                </li>
+                <li class="  flex items-center hover:bg-gray-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-chat-left-dots text-gray-400 ml-2 group-hover:text-gray-500 flex-shrink-0 "
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                    <path
+                      d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                  </svg>
+                  </svg>
+                  <a href="/messages" class="block px-4 py-2 ">Messages</a>
+                </li>
+              </ul>
+               <div class="py-2">
+                 <a  onclick="signOut();" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+               </div>
+           </div>
 <?php
-          }else{
-          ?>  
-          <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-              <a href="/signin" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
-              <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-              <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
-            </div>
-<?php }
+            }
+        
+                      }else{
+                      ?>  
+                      <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                          <a href="/signin" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
+                          <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                          <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
+                        </div>
+            <?php }
+      
 ?>
 
             <div class="hidden lg:ml-8 lg:flex">
@@ -449,7 +506,6 @@ if($_SESSION["user"]){
             <!-- Cart -->
             <div class="ml-4 flow-root lg:ml-6">
               <a href="/cart" class="group -m-2 p-2 flex items-center">
-                <!-- Heroicon name: outline/shopping-bag -->
                 <svg class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>

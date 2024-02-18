@@ -20,7 +20,7 @@ function hideForgotPasswordModal() {
     modal.classList.add("hidden");
     backdrop.classList.add("hidden");
 
-
+    // visibility_off
     document.body.classList.remove("overflow-hidden");
 }
 
@@ -52,35 +52,50 @@ function togglePasswordVisibility(inputId) {
 }
 
 
-async function forgotPassword() {
+function resetPassword(){
 
     const email = document.getElementById("email").value;
+    const password = document.getElementById("pasword").value;
+    const retype_password = document.getElementById("retype_password").value;
 
-    try {
-        const response = await fetch("/controllers/forgotPasswordController.php?email=" + email);
+    const request = new XMLHttpRequest();
+    const form = new FormData();
+    form.append("email",email);
+    form.append("password",password);
+    form.append("retype_password",retype_password);
 
-        if (response.ok) {
-            const responseData = await response.text();
-            if (responseData.trim() === "Success") {
-                document.getElementById("msgToast").classList.remove("hidden");
-                document.getElementById("msg").innerHTML = "Verification code has been sent successfully. Please check your email.";
-                document.getElementById("msgToast").classList.add("border-green-500");
-                document.getElementById("msgIcon").classList.add("bg-green-500");
-                setTimeout(function () {
-                    document.getElementById("msgToast").classList.add("hidden");
-                     showForgotPasswordModal();
-                }, 2500);
-            } else {
-                document.getElementById("msgToast").classList.remove("hidden");
-                document.getElementById("msg").innerHTML = responseData;
+    request.onreadystatechange =()=>{
+
+        if(request.readyState==4 && request.status ==200){
+            if(request.responseText=="success"){
+                document.getElementById("fpmodal").classList.add("hidden");
+                document.getElementById("modal-backdrop").classList.add("hidden");
+setTimeout(() => {
+    document.getElementById("msgToast").classList.remove("hidden");
+    document.getElementById("msg").innerHTML = "Password Changed";
+    document.getElementById("msgToast").classList.remove("border-green-500");
+    document.getElementById("msgToast").classList.add("border-red-500");
+    document.getElementById("msgIcon").classList.remove("bg-green-500");
+    document.getElementById("msgIcon").classList.add("bg-red-500");
+    window.location.reload();
+}, 2000);
+
+            }else{
+                document.getElementById("fpmodal").classList.add("hidden");
+                document.getElementById("modal-backdrop").classList.add("hidden");
                 setTimeout(() => {
-                    document.getElementById("msgToast").classList.add("hidden");
-                }, 2500);
+                    document.getElementById("msgToast").classList.remove("hidden");
+                    document.getElementById("msg").innerHTML = request.responseText;
+                    document.getElementById("msgToast").classList.remove("border-green-500");
+                    document.getElementById("msgToast").classList.add("border-orange-500");
+                    document.getElementById("msgIcon").classList.remove("bg-green-500");
+                    document.getElementById("msgIcon").classList.add("bg-orange-500");
+                    window.location.reload();
+                }, 2000);
             }
-        } else {
-            throw new Error("Network response was not ok.");
         }
-    } catch (error) {
-        console.error("Fetch error:", error);
     }
+    request.open("POST","./controllers/resetPasswordController.php",true);
+request.send(form);
+
 }

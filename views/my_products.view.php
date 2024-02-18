@@ -3,11 +3,22 @@
  require_once "./views/partials/nav.php";
 
 ?>
-<div class="w-full flex flex-row items-center ">
-<p class="text-xl md:block hidden md:ms-12" >My Products</p>
+<div class="">
+
+<main class="max-w-7xl mx-auto pb-10 lg:py-12 lg:px-8">
+  <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
+  <?php require_once "./views/partials/user_profile_sidebar.php" ?>
+  <div class="space-y-1 sm:px-6 lg:px-0 lg:col-span-9">
+<!-- content start -->
+<div class="max-w-2xl  mx-auto px-4 lg:max-w-4xl lg:px-0">
+        <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">My Products</h1>
+        <p class="mt-2 text-sm text-gray-500">Update your billing information. Please note that updating your
+                    location could affect your tax rates..</p>
+      </div>
+  <div class="w-full flex px-5 flex-row items-center ">
 
    <!-- search bar -->
-<div class="flex md:w-[65%] my-6 min-w-[70%] me-5 md:me-0 flex-row items-center justify-center">
+<div class="flex md:w-[65%] my-6 pe-4 min-w-[70%]  md:px-0 md:me-0 flex-row items-center justify-center">
 <form class="flex w-full items-center  max-w-lg mx-auto">   
     <div class="relative w-full">
    
@@ -22,7 +33,7 @@
 </form>
 </div>
 
-    <button class="bg-yellow-500 w-fit align-left text-white rounded-md lg:py-2.5 py-1 sm:text-base text-sm px-3">Add New Product</button>
+    <button class="bg-yellow-500 w-fit align-left text-white rounded-md sm:py-2.5 py-1  text-sm px-3">Add New Product</button>
 </div>
 <div class="">
     <!-- sort -->
@@ -81,9 +92,10 @@
 </div>
 
 
+</div>
 
 
-<?php require_once "./views/partials/header.php";
- require_once "./views/partials/nav.php";
+  </div></main></div>
 
-?>
+
+  <?php require_once "./views/partials/footer.php"?>

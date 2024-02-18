@@ -1,34 +1,19 @@
 <?php
-
-include "../connection.php";
+require_once "../connection.php";
 
 $email = $_POST["email"];
-$newpw = $_POST["newPassword"];
-$retypepw = $_POST["retypePassword"];
-$vcode = $_POST["verification"];
+$password = $_POST["password"];
+$retype_password = $_POST["retype_password"];
+if($password===$retype_password){
 
-if (empty($newpw)) {
-    echo ("Please enter your new password!.");
-} else if (empty($retypepw)) {
-    echo ("Please Re-type your password!.");
-} else if ($newpw != $retypepw) {
-    echo ("Password does not match.");
-} else if (empty($vcode)) {
-    echo ("Please enter your verification code.");
-} else {
+    if(isset($email) && isset($password) && isset($retype_password)){
+// update query have to insert
+$request = Database::iud("UPDATE `user` SET (`password`='".$password."') WHERE `email`='".$email."'");
 
-    $resultSet = Database::search("SELECT * FROM `user` WHERE `email`='" . $email . "' AND `verification_code`='" . $vcode . "'");
-    $num_rows = $resultSet->num_rows;
-
-    if ($num_rows == 1) {
-
-        Database::iud("UPDATE `user` SET `password`='" . $retypepw . "' WHERE `email`='" . $email . "'");
-        echo ("success");
-
-    } else {
-        echo ("Invalid Email Address or Verification Code");
+echo("success");
     }
-
+}else{
+    echo("passwords does not match");
 }
 
 ?>

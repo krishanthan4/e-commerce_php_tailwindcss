@@ -8,6 +8,8 @@ include "../email_files/Exception.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 
+$config = require_once "../config.php";
+
 if (isset($_GET["email"])) {
 
     $email = $_GET["email"];
@@ -24,12 +26,12 @@ if (isset($_GET["email"])) {
         $mail->IsSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'id20051106@gmail.com';
-        $mail->Password = 'peejpqmtzhghhqis';//peejpqmtzhghhqis
+        $mail->Username = $config["app_email"];
+        $mail->Password = $config["app_password"];//peejpqmtzhghhqis
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
-        $mail->setFrom('id20051106@gmail.com', 'Reset Password');
-        $mail->addReplyTo('id20051106@gmail.com', 'Reset Password');
+        $mail->setFrom($config["app_email"], 'Reset Password');
+        $mail->addReplyTo($email, 'Reset Password');
         $mail->addAddress($email);
         $mail->isHTML(true);
         $mail->Subject = 'eShop Forgot password Verification Code';
@@ -49,5 +51,8 @@ if (isset($_GET["email"])) {
 } else {
     echo ("Please enter your Email Address in Email Field.");
 }
+
+
+
 
 ?>
