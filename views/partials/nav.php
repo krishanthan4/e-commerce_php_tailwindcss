@@ -200,7 +200,7 @@
           <div class="ml-4 flex lg:ml-0">
             <a href="#">
               <span class="sr-only">Workflow</span>
-              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="">
+              <img draggable="false" class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="">
             </a>
           </div>
 
@@ -354,9 +354,31 @@
                       </div>
               </div>
 
-              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"></a>
+              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Company</a>
 
               <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
+          
+
+    <!--main search bar -->
+    <div class="flex  ms-10 flex-row items-center justify-center">
+      <form class="flex  items-center mx-auto">
+        <div class="relative md:min-w-[60%] md:max-w-[80%] xl:min-w-[140%]">
+          <input type="text" id="MainSearch"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none"
+            placeholder="Search" required />
+        </div>
+        <button type="submit"
+          class="inline-flex items-center py-2.5 px-3 ms-5 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+          </svg>Search
+        </button>
+      </form>
+    </div>
+
+
             </div>
           </div>
             </div>
@@ -368,16 +390,16 @@
           if(isset($_SESSION["user"]) && $_SESSION["user"]){
 
 $result =  Database::search("SELECT * FROM `profile_img` WHERE `user_email`='".$_SESSION["user"]["email"]."'");
+$path = $result->fetch_assoc();
 
-if($result->num_rows!==0){
-  $path = $result->fetch_assoc();
+if($result->num_rows!==0 && $path["path"]!=="resources/new_user.png" ){
 
             ?>
                <!-- Account -->
             
                <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class=" text-sm bg-gray-800 rounded-full md:block hidden md:me-0 focus:ring-1 focus:ring-gray-300 " type="button">
             
-               <img class=" border-2 border-gray-500 object-center object-cover w-10 h-10 rounded-full" src="<?= $path["path"]?>" alt="<?= $path["user_email"]?>">
+               <img  draggable="false" class=" border-2 border-gray-500 object-center object-cover w-10 h-10 rounded-full" src="<?= $path["path"]?>" alt="<?= $path["user_email"]?>">
             </button>
 
                   <!-- Dropdown menu -->
@@ -412,7 +434,7 @@ if($result->num_rows!==0){
                     <path
                       d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
                   </svg>
-                  </svg>
+              
                   <a href="/messages" class="block px-4 py-2 ">Messages</a>
                 </li>
               </ul>
@@ -423,53 +445,52 @@ if($result->num_rows!==0){
             <?php
            } else{
 ?>
-     <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="md:block z-30 hidden text-sm bg-white rounded-full md:me-0 focus:ring-1 focus:ring-gray-300 " type="button">
-  
-     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle text-gray-700" viewBox="0 0 16 16">
-  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+    
+    <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class=" text-sm bg-gray-800 rounded-full md:block hidden md:me-0 focus:ring-1 focus:ring-gray-300 " type="button">
+            
+            <img  draggable="false" class="grayscale border-2 border-gray-500 object-center object-cover w-10 h-10 rounded-full" src="./resources/new_user.png" alt="sample image">
          </button>
 
-              <!-- Dropdown menu -->
-              <div id="dropdownAvatar" class=" hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
-               
+               <!-- Dropdown menu -->
+               <div id="dropdownAvatar" class=" hidden z-30 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
             
-              <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownUserAvatarButton">
-                <li class=" flex items-center hover:bg-gray-100">
-                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 ml-2"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16"
-                    height="16" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <a href="/userProfile" class="block px-4 py-2 hover:bg-gray-100 ">Profile</a>
-                </li>
-                <li class=" flex items-center hover:bg-gray-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
-                    viewBox="0 0 16 16">
-                    <path
-                      d="M8.01 4.555 4.005 7.11 8.01 9.665 4.005 12.22 0 9.651l4.005-2.555L0 4.555 4.005 2zm-4.026 8.487 4.006-2.555 4.005 2.555-4.005 2.555zm4.026-3.39 4.005-2.556L8.01 4.555 11.995 2 16 4.555 11.995 7.11 16 9.665l-4.005 2.555z" />
-                  </svg>
-                  <a href="/myProducts" class="block px-4 py-2 hover:bg-gray-100 d">My Products</a>
-                </li>
-                <li class="  flex items-center hover:bg-gray-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chat-left-dots text-gray-400 ml-2 group-hover:text-gray-500 flex-shrink-0 "
-                    viewBox="0 0 16 16">
-                    <path
-                      d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                    <path
-                      d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-                  </svg>
-                  </svg>
-                  <a href="/messages" class="block px-4 py-2 ">Messages</a>
-                </li>
-              </ul>
-               <div class="py-2">
-                 <a  onclick="signOut();" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
-               </div>
-           </div>
+    
+               <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownUserAvatarButton">
+             <li class=" flex items-center hover:bg-gray-100">
+               <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 ml-2"
+                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16"
+                 height="16" aria-hidden="true">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                   d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+               </svg>
+               <a href="/userProfile" class="block px-4 py-2 hover:bg-gray-100 ">Profile</a>
+             </li>
+             <li class=" flex items-center hover:bg-gray-100">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
+                 viewBox="0 0 16 16">
+                 <path
+                   d="M8.01 4.555 4.005 7.11 8.01 9.665 4.005 12.22 0 9.651l4.005-2.555L0 4.555 4.005 2zm-4.026 8.487 4.006-2.555 4.005 2.555-4.005 2.555zm4.026-3.39 4.005-2.556L8.01 4.555 11.995 2 16 4.555 11.995 7.11 16 9.665l-4.005 2.555z" />
+               </svg>
+               <a href="/myProducts" class="block px-4 py-2 hover:bg-gray-100 d">My Products</a>
+             </li>
+             <li class="  flex items-center hover:bg-gray-100">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-chat-left-dots text-gray-400 ml-2 group-hover:text-gray-500 flex-shrink-0 "
+                 viewBox="0 0 16 16">
+                 <path
+                   d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                 <path
+                   d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+               </svg>
+           
+               <a href="/messages" class="block px-4 py-2 ">Messages</a>
+             </li>
+           </ul>
+            <div class="py-2">
+              <a  onclick="signOut();" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+            </div>
+        </div>
 <?php
             }
         
@@ -492,16 +513,7 @@ if($result->num_rows!==0){
               </a>
             </div>
 
-            <!-- Search -->
-            <div class="flex lg:ml-6">
-              <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
-                <span class="sr-only">Search</span>
-                <!-- Heroicon name: outline/search -->
-                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </a>
-            </div>
+        
 
             <!-- Cart -->
             <div class="ml-4 flow-root lg:ml-6">
@@ -520,5 +532,27 @@ if($result->num_rows!==0){
   </header>
 
   
+  <!--Mobile search -->
+<div class="mx-2 lg:hidden block">
+  <div class="w-full flex flex-row justify-center items-center">
+    <div class="flex md:w-[65%]  my-6 min-w-[70%] me-5 md:me-0 flex-row items-center justify-center">
+      <form class="flex w-full items-center max-w-lg mx-auto">
+        <div class="relative w-full">
+          <input type="text" id="MainSearch"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none"
+            placeholder="Search" required />
+        </div>
+        <button type="submit"
+          class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+          </svg>Search
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
   
   <script src="./public/js/nav.js"></script>

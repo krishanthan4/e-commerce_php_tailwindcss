@@ -45,7 +45,7 @@
 </div>
     <!-- sort -->
     <div>
-        <div class="flex flex-row justify-center items-center">
+        <div class="grid grid-cols-2 justify-center items-center">
             <!-- card start -->
         <div  class="flex m-5 flex-col items-center bg-white border border-gray-200 rounded-lg shadow lg:flex-row lg:max-w-xl md:max-w-72  sm:max-w-60 hover:bg-gray-100 ">
  <div class="lg:w-[40%] lg:ms-3 md:w-full sm:[30%]">
