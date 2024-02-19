@@ -2,9 +2,8 @@ function changeProfileImage() {
   const image = document.getElementById("userImage");
 
   image.onchange = () => {
-    const file = this.files[0];
+    const file = image.files[0];
     const url = window.URL.createObjectURL(file);
-
     document.getElementById("image").src = url;
   };
 }
