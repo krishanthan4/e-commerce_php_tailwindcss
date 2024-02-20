@@ -4,6 +4,7 @@ function changeProfileImage() {
   image.onchange = () => {
     const file = image.files[0];
     const url = window.URL.createObjectURL(file);
+
     document.getElementById("image").src = url;
   };
 }

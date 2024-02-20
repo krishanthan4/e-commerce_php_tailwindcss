@@ -13,7 +13,6 @@ async function updateProfile() {
     const pcode = document.getElementById("pcode").value;
     const image = document.getElementById("userImage").files[0];
 
-   
     const formData = new FormData();
     formData.append("firstName",firstName);
     formData.append("lastName",lastName);
@@ -35,7 +34,24 @@ async function updateProfile() {
         if(response.ok){
             const responseData = await response.text();
             if(responseData.trim() === "Updated" || responseData.trim() === "Saved"){
+                document.getElementById("msgToast").classList.remove("hidden");
+                document.getElementById("msg").innerHTML = "Profile Image Updated Successfully !";
+                document.getElementById("msgToast").classList.add("border-green-500");
+                document.getElementById("msgIcon").classList.add("bg-green-500");
+                setTimeout(() => {
+                    document.getElementById("msgToast").classList.add("hidden");
+                    window.location.href="/signin";
+                }, 2500);
                     window.location.reload();
+            }else if(responseData.trim() == "You have not selected any image."){
+                document.getElementById("msgToast").classList.remove("hidden");
+                document.getElementById("msg").innerHTML = "You have not selected any image.";
+                document.getElementById("msgToast").classList.add("border-green-500");
+                document.getElementById("msgIcon").classList.add("bg-green-500");
+                setTimeout(() => {
+                    document.getElementById("msgToast").classList.add("hidden");
+                    window.location.reload();
+                }, 2500);
             }else{
                 document.getElementById("msgToast").classList.remove("hidden");
                 document.getElementById("msg").innerHTML = responseData;

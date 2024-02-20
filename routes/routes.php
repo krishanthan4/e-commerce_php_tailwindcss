@@ -1,7 +1,7 @@
 <?php 
 
 return [
-    "/"=>"./views/index.view.php",
+    "/" =>"./views/index.view.php",
     "/home"=>"./views/home.view.php",
     "/user"=>"./views/user.php",
     "/signin"=>"./views/signin.view.php",

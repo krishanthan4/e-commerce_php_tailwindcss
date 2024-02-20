@@ -8,12 +8,12 @@ if (file_exists($filename)) {
 
   unlink($filename);
   if (unlink($filename)) {
-      echo "success";
+      echo("success");
   } else {
-      echo "Unable to delete the file.";
+      echo ("Unable to delete the file.");
   }
 } else {
-  echo "File does not exist.";
+  echo ("File does not exist.");
 }
 
 ?>
