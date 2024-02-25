@@ -4,11 +4,10 @@ if(isset($_SESSION["user"])){
 $userEmail = $_SESSION["user"]["email"];
 require_once "../connection.php";
 
-if($_POST["product_id"] && $_POST["qty"]){
+if($_POST["product_id"]){
 try {
     $product_id=intval($_POST["product_id"]);
-    $qty=intval($_POST["qty"]);
-$wishlist=Database::iud("INSERT INTO `wishlist` (`user_email`,`product_id`,`qty`) VALUES ('".$userEmail."','".$product_id."','".$qty."')");
+$wishlist=Database::iud("DELETE  FROM `wishlist` WHERE `product_id`='".$product_id."' AND `user_email`='".$userEmail."'");
 
 echo("success");
 } catch (\Throwable $th) {

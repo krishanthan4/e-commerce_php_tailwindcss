@@ -83,7 +83,7 @@ if (isset($_SESSION["user"])) {
                     <div class="flex items-center text-base sm:text-sm">
                       <input id="color-0" name="color[]" value="white" type="radio" id="used"
                         class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" disabled>
-                      <label for="color-0" class="ml-3 min-w-0 flex-1 text-gray-600">USed</label>
+                      <label for="color-0" class="ml-3 min-w-0 flex-1 text-gray-600">Used</label>
                     </div>
 
                   </div>
@@ -101,7 +101,7 @@ if (isset($_SESSION["user"])) {
                       <input id="color-0" name="color[]" value="white" type="radio" id="used"
                         class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" checked
                         disabled>
-                      <label for="color-0" class="ml-3 min-w-0 flex-1 text-gray-600">USed</label>
+                      <label for="color-0" class="ml-3 min-w-0 flex-1 text-gray-600">Used</label>
                     </div>
 
                   </div>
