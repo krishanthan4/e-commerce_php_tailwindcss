@@ -1,9 +1,9 @@
 <?php 
 
 return [
-    "/"=>"./views/index.view.php",
+    "/" =>"./views/index.view.php",
     "/home"=>"./views/home.view.php",
-    "/user"=>"./views/user.view.php",
+    "/user"=>"./views/user.php",
     "/signin"=>"./views/signin.view.php",
     "/signup"=>"./views/signup.view.php",
     "/cart"=>"./views/cart.view.php",
@@ -26,10 +26,10 @@ return [
     "/writeReviews"=>"./views/write_reviews.view.php",
     "/editProduct"=>"./views/edit_product.view.php",
     "/adminDashboard"=>"./views/admin/admin_dashboard.view.php",
-    
+    "/contactAdmin"=>"./views/contact_admin.view.php",
+        
     
     "/alert"=>"./views/partials/alert.php",
-
-];
+    ];
 
 ?>

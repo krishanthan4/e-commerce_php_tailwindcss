@@ -1,29 +1,26 @@
-<?php 
+<?php
 
 class Database{
 
-   public $config;
-    public $connection ;
+    public static $connection;
 
-    function __construct(){
-        $this->config=  include "config.php";
-        $this->connection = new mysqli($config["hostname"],$config["username"]="root",$config["password"]="Abcd!234",$config["database"],$config["port"]);
-
-        if($this->connection->connect_error){
-die("Connection Failed :" . $this->connection->connect_error);
+    public static function setUpConnection(){
+        if(!isset(Database::$connection)){
+            Database::$connection = new mysqli("localhost","root","Abcd!234","eshop","3306");
         }
-
     }
 
-    function search($query){
-return $this->connection->query($query);
-
-
+    public static function iud($q){
+        Database::setUpConnection();
+        Database::$connection->query($q);
     }
-    function UID($query){
-        $this->connection->query($query);
 
+    public static function search($q){
+        Database::setUpConnection();
+        $resultset = Database::$connection->query($q);
+        return $resultset;
     }
+
 }
 
 ?>

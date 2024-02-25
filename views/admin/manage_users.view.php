@@ -1,12 +1,12 @@
 <?php require_once "./views/partials/header.php";
  require_once "./views/partials/nav.php";
+ require_once "./connection.php";
 
 ?>
 
 <div class="mx-4 md:mx-12 my-3">
     <div class="w-full flex flex-row items-center">
         <p class="text-xl md:block hidden md:ms-6">Manage Users</p>
-
         <!-- search bar -->
         <div class="flex md:w-[65%] my-6 min-w-[70%] me-5 md:me-0 flex-row items-center justify-center">
             <form class="flex w-full items-center max-w-lg mx-auto">   
@@ -32,7 +32,7 @@
                     <!-- Table Headers -->
                     <thead class="bg-gray-50">
                         <tr>
-                            <th scope="col" class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> # </th>
+                            <th scope="col" class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
                             <th scope="col" class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Profile Image </th>
                             <th scope="col" class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Username </th>
                             <th scope="col" class="px-4 md:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Email </th>
@@ -42,35 +42,97 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        <tr>
+<?php 
+
+$manageResult = Database::search("SELECT * FROM `user` LIMIT 0,10");
+
+for ($i=0; $i < $manageResult->num_rows; $i++) { 
+    $manageUsers= $manageResult->fetch_assoc();
+?>
+
+<tr>
                         <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">1</div>
+                                <div class="text-sm text-gray-900"><?= $i+1?></div>
                             
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 h-10 w-10">
-                                        <img class=" border border-gray-300 h-10 w-10 rounded-full"
-                                            src="https://www.gcentre.lk/wp-content/uploads/2021/12/SamsungGalaxyZFlip-5-1592474241.jpg.webp"
+<?php
+$ManageUserProfile = Database::search("SELECT `path` FROM `profile_img` WHERE `user_email`='".$manageUsers["email"]."'");
+$UserProfile = $ManageUserProfile->fetch_assoc();
+
+if($UserProfile["path"]!==null){
+?>
+      <img class=" border object-center object-cover border-gray-300 h-10 w-10 rounded-full"
+                                            src="<?= $UserProfile["path"]?>"
                                             alt="">
+<?php
+}else{
+    ?>
+      <img class=" border object-center object-cover grayscale border-gray-300 h-10 w-10 rounded-full"
+                                            src="./resources/new_user.png"
+                                            alt="">
+<?php
+}
+
+?>
                                     </div>
                              
                                 </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">Ishara Deshan</div>
-                            
+
+                            <?php 
+                            if($manageUsers["fname"]==!null || $manageUsers["lname"]){
+?>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900"><?=  $manageUsers["fname"] ." ".$manageUsers["lname"]?> </div> 
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">ishara@gmail.com</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0711998396</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-04</td>
+<?php
+                            }else{
+                                ?>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                             <div class="text-sm ps-10 text-gray-900">-</div> 
+                                 </td>
+                              <?php
+                            }
+                            
+                            ?>
+
+<td id="email" class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"><?= $manageUsers["email"]?></td>
+
+
+
+                          <?php 
+                            if($manageUsers["mobile"]==!null){
+?>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900"><?=  $manageUsers["mobile"]?> </div> 
+                            </td>
+<?php
+                            }else{
+                                ?>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                             <div class="text-sm ps-10 text-gray-900">-</div> 
+                                 </td>
+                              <?php
+                            }
+                            
+                            ?>
+                          
+
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?= $manageUsers["joined_date"]?></td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex items-center justify-center">
-                                <button type="button"
+                                <button type="button" id="blockbutton" onclick="blockUser();"
                                     class="inline-flex items-center px-6 py-2 border  border-red-600 text-[16px] font-bold rounded text-red-700 bg-white hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                     Block
                                 </button>
                             </td>
                         </tr>
+<?php
+}
+?>
+
                      
 
                         <!-- More people... -->
@@ -144,7 +206,7 @@
 <div>
     
 </div>
-
+<script src="./public/js/manageUsers.js"></script>
 <?php require_once "./views/partials/footer.php";
 
 ?>

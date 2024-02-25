@@ -36,3 +36,19 @@ function flyoutMenumenRemove() {
   flyoutMenumen.classList.add("hidden");
 }
 
+
+
+function signOut(){
+  
+  const request = new XMLHttpRequest();
+  request.onreadystatechange = ()=>{
+if(request.status==200 && request.readyState==4){
+if(request.responseText=="success"){
+window.location.href = "/";
+}
+
+}
+  }
+  request.open("POST","./controllers/signoutController.php",true);
+  request.send();
+}

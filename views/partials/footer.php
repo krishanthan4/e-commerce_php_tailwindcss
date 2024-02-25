@@ -1,3 +1,6 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+
 <script src="./public/js/index.js"></script>
 <footer aria-labelledby="footer-heading" class="bg-white" >
     <h2 id="footer-heading" class="sr-only">Footer</h2>

@@ -256,6 +256,6 @@
   </main>
 </div>
 
-<script src="./public/js/cart.js"></script>
+<!-- <script src="./public/js/cart.js"></script> -->
 
 <?php require_once "./views/partials/footer.php";?>
