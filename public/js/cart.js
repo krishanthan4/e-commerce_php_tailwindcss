@@ -52,3 +52,38 @@ function deleteFromCart(id) {
         }
     });
 }
+
+
+function selectAllItems() {
+    var isChecked = $('#selectAllCheckBox').prop('checked');
+    $('.itemCheckbox').prop('checked', isChecked);
+ 
+}
+
+
+function orderSummary(cart_id, delivery_cost, requested_total, unit_price) {
+    
+    const checkbox = $('#' + cart_id);
+    const isChecked = checkbox.prop('checked');
+
+    let subtotal = parseFloat($('#subtotal').text().replace('Rs. ', ''));
+    let deliveryCost = parseFloat($('#deliveryCost').text().replace('Rs. ', ''));
+    let orderTotal = parseFloat($('#orderTotal').text().replace('Rs. ', ''));
+
+    if (isChecked) {
+     
+        subtotal += parseFloat(unit_price);
+        deliveryCost += parseFloat(delivery_cost);
+        orderTotal += parseFloat(requested_total);
+    } else {
+       
+        subtotal -= parseFloat(unit_price);
+        deliveryCost -= parseFloat(delivery_cost);
+        orderTotal -= parseFloat(requested_total);
+    }
+
+
+    $('#subtotal').text('Rs. ' + subtotal.toFixed(2));
+    $('#deliveryCost').text('Rs. ' + deliveryCost.toFixed(2));
+    $('#orderTotal').text('Rs. ' + orderTotal.toFixed(2));
+}
