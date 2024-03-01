@@ -42,9 +42,12 @@ if (isset($_SESSION["user"])) {
                         </form>
                     </div>
 
+                    <a href="/addProduct">
                     <button
                         class="bg-yellow-500 w-fit align-left text-white rounded-md sm:py-2.5 py-1  text-sm px-3">Add
                         New Product</button>
+                    </a>
+                    
                 </div>
                 <div class="">
                     <!-- sort -->
