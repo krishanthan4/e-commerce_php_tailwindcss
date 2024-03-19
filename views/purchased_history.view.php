@@ -11,7 +11,7 @@ require_once "./views/partials/nav.php"; ?>
         <main class="">
           <div class="max-w-7xl mx-auto sm:px-2 lg:px-8">
             <div class="max-w-2xl mx-auto px-4 lg:max-w-4xl lg:px-0">
-              <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Order history</h1>
+              <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Purchase history</h1>
               <p class="mt-2 text-sm text-gray-500">Check the status of recent orders, manage returns, and discover
                 similar products.</p>
             </div>
@@ -130,8 +130,9 @@ require_once "./views/partials/nav.php"; ?>
                         <div
                           class="mt-6 border-t border-gray-200 pt-4 flex items-center space-x-4 divide-x divide-gray-200 text-sm font-medium sm:mt-0 sm:ml-4 sm:border-none sm:pt-0">
                           <div class="flex-1 flex justify-center">
-                            <a href="#" class="text-indigo-600 whitespace-nowrap hover:text-indigo-500">View product</a>
+                            <a href="#" class="text-indigo-600 whitespace-nowrap hover:text-indigo-500">Write Review</a>
                           </div>
+                          
                           <div class="flex-1 pl-4 flex justify-center">
                             <a href="#" class="text-indigo-600 whitespace-nowrap hover:text-indigo-500">Buy again</a>
                           </div>

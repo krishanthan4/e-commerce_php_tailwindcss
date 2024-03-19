@@ -19,7 +19,6 @@ function changeStatus(id) {
     });
 }
 
-
 function sendId(id) {
     $.ajax({
         url: `/controllers/sendIdController.php?id=${id}`,
@@ -40,11 +39,6 @@ function sendId(id) {
         }
     });
 }
-
-
-
-
-
 
 function updateProduct() {
     try {
@@ -164,5 +158,5 @@ function addProduct() {
         error: function (error) {
             console.error('Error occurred while adding product:', error);
         }
-    });
+    });Shopping
 }

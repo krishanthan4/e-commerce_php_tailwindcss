@@ -17,16 +17,17 @@ async function signIn() {
 
         if (response.ok) {
             const responseData = await response.text();
-            if (responseData.trim() === "success") {
-                window.location.href = "/";
-            } else {
-                document.getElementById("msgToast").classList.remove("hidden");
-                document.getElementById("msg").innerHTML = responseData;
-                setTimeout(() => {
-                    document.getElementById("msgToast").classList.add("hidden");
-                }, 2500);
-                
-            }
+
+           if (responseData.trim() === "success") {
+            window.location.href = "/";
+        } else {
+            document.getElementById("msgToast").classList.remove("hidden");
+            document.getElementById("msg").innerHTML = responseData;
+            setTimeout(() => {
+                document.getElementById("msgToast").classList.add("hidden");
+            }, 2500);
+            
+        }
         } else {
             throw new Error("Network response was not ok.");
         }

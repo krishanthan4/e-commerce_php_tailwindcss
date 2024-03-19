@@ -1,5 +1,5 @@
 <?php
-require_once "./connection.php";
+require_once "./connection2.php";
 require_once "./function.php";
 
 ?>
@@ -420,7 +420,7 @@ require_once "./function.php";
                 <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
 
 
-          <?php require_once "./views/partials/mainSearchBar.php"?>
+                <?php require_once "./views/partials/mainSearchBar.php" ?>
 
               </div>
             </div>
@@ -474,6 +474,29 @@ require_once "./function.php";
                       <p class="block px-4 py-2 hover:bg-gray-100 d">My Products</p>
                     </li>
                   </a>
+                  <a href="/wishlist">
+                    <li class="  flex items-center hover:bg-gray-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                      </svg>
+                      <p class="block px-4 py-2 ">Wishlist</p>
+                    </li>
+                  </a>
+
+                  <a href="/orderHistory">
+                    <li class="  flex items-center hover:bg-gray-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2m3 4V3a3 3 0 1 0-6 0v2H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5zm-1 1v1.5a.5.5 0 0 0 1 0V6h1.639a.5.5 0 0 1 .494.426l1.028 6.851A1.5 1.5 0 0 1 12.678 15H3.322a1.5 1.5 0 0 1-1.483-1.723l1.028-6.851A.5.5 0 0 1 3.36 6H5v1.5a.5.5 0 1 0 1 0V6z" />
+                      </svg>
+                      <p class="block px-4 py-2 ">Prchase History</p>
+                    </li>
+                  </a>
 
                   <a href="/messages">
                     <li class="  flex items-center hover:bg-gray-100">
@@ -488,29 +511,45 @@ require_once "./function.php";
                       <p class="block px-4 py-2 ">Messages</p>
                     </li>
                   </a>
+
+                  <a href="/contactAdmin">
+                    <li class="  flex items-center hover:bg-gray-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                      </svg>
+                      <p class="block px-4 py-2 ">Contact Admin</p>
+                    </li>
+                  </a>
                 </ul>
-                <div class="py-2">
-                  <a onclick="signOut();"
-                    class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                <div class="py-2 ">
+                  <li class="  flex items-center hover:bg-gray-100 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="16" height="16"
+                      stroke="currentColor" class="text-gray-400  ml-1 group-hover:text-gray-500 flex-shrink-0">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+                    </svg>
+                    <a onclick="signOut();" class="ml-2">
+                      Sign out</a>
+                  </li>
                 </div>
               </div>
               <?php
             } else {
               ?>
 
-              <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
+<button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
                 class=" text-sm bg-gray-800 rounded-full md:block hidden md:me-0 focus:ring-1 focus:ring-gray-300 "
                 type="button">
 
-                <img draggable="false"
-                  class="grayscale border-2 border-gray-500 object-center object-cover w-10 h-10 rounded-full"
-                  src="./resources/new_user.png" alt="sample image">
+                <img draggable="false" class="grayscale border-2 border-gray-500 object-center object-cover w-10 h-10 rounded-full"
+                  src="./resources/new_user.png">
               </button>
 
               <!-- Dropdown menu -->
               <div id="dropdownAvatar" class=" hidden z-30 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
-
-
                 <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownUserAvatarButton">
                   <a href="/userProfile">
                     <li class=" flex items-center hover:bg-gray-100">
@@ -523,6 +562,7 @@ require_once "./function.php";
                       <p class="block px-4 py-2 hover:bg-gray-100 ">Profile</p>
                     </li>
                   </a>
+
                   <a href="/myProducts">
                     <li class=" flex items-center hover:bg-gray-100">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -532,6 +572,29 @@ require_once "./function.php";
                           d="M8.01 4.555 4.005 7.11 8.01 9.665 4.005 12.22 0 9.651l4.005-2.555L0 4.555 4.005 2zm-4.026 8.487 4.006-2.555 4.005 2.555-4.005 2.555zm4.026-3.39 4.005-2.556L8.01 4.555 11.995 2 16 4.555 11.995 7.11 16 9.665l-4.005 2.555z" />
                       </svg>
                       <p class="block px-4 py-2 hover:bg-gray-100 d">My Products</p>
+                    </li>
+                  </a>
+                  <a href="/wishlist">
+                    <li class="  flex items-center hover:bg-gray-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                      </svg>
+                      <p class="block px-4 py-2 ">Wishlist</p>
+                    </li>
+                  </a>
+
+                  <a href="/orderHistory">
+                    <li class="  flex items-center hover:bg-gray-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2m3 4V3a3 3 0 1 0-6 0v2H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5zm-1 1v1.5a.5.5 0 0 0 1 0V6h1.639a.5.5 0 0 1 .494.426l1.028 6.851A1.5 1.5 0 0 1 12.678 15H3.322a1.5 1.5 0 0 1-1.483-1.723l1.028-6.851A.5.5 0 0 1 3.36 6H5v1.5a.5.5 0 1 0 1 0V6z" />
+                      </svg>
+                      <p class="block px-4 py-2 ">Prchase History</p>
                     </li>
                   </a>
 
@@ -548,10 +611,29 @@ require_once "./function.php";
                       <p class="block px-4 py-2 ">Messages</p>
                     </li>
                   </a>
+
+                  <a href="/contactAdmin">
+                    <li class="  flex items-center hover:bg-gray-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-dropbox  text-gray-400  ml-2 group-hover:text-gray-500 flex-shrink-0"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                      </svg>
+                      <p class="block px-4 py-2 ">Contact Admin</p>
+                    </li>
+                  </a>
                 </ul>
-                <div class="py-2">
-                  <a onclick="signOut();"
-                    class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                <div class="py-2 ">
+                  <li class="  flex items-center hover:bg-gray-100 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="16" height="16"
+                      stroke="currentColor" class="text-gray-400  ml-1 group-hover:text-gray-500 flex-shrink-0">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+                    </svg>
+                    <a onclick="signOut();" class="ml-2">
+                      Sign out</a>
+                  </li>
                 </div>
               </div>
               <?php
@@ -587,19 +669,35 @@ require_once "./function.php";
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
-            <?php 
-             
-            $cartNumber_rs = Database::search("SELECT  COUNT(`user_email`) FROM `cart` WHERE `user_email`='".$_SESSION["user"]["email"]."'");
-            $cartNumber = $cartNumber_rs->fetch_assoc();
-            ?>
-              <span class="-ms-3 -mt-4 <?php if($cartNumber["COUNT(`user_email`)"] >0){
-?>bg-red-400<?php }?>  w-[1.1rem] text-center h-[1.1rem] rounded-full text-sm  text-white"><?php
-              if($cartNumber["COUNT(`user_email`)"] >0){
-                echo($cartNumber["COUNT(`user_email`)"]);
+              <?php
+              try {
+                if (isset($_SESSION["user"]) && $_SESSION["user"]) {
 
-              }
-              ?></span>
-            </a>
+
+                  $cartNumber_rs = Database::search("SELECT  COUNT(user_email) FROM cart WHERE user_email='" . $_SESSION["user"]["email"] . "'");
+                  $cartNumber = $cartNumber_rs->fetch_assoc();
+                  ?>
+                  <span class="-ms-3 -mt-4 <?php if ($cartNumber["COUNT(user_email)"] > 0) {
+                    ?>bg-red-400<?php } ?>  w-[1.1rem] text-center h-[1.1rem] rounded-full text-sm  text-white">
+                    <?php
+                    if ($cartNumber["COUNT(user_email)"] > 0) {
+                      echo ($cartNumber["COUNT(user_email)"]);
+
+                    }
+                    ?>
+                  </span>
+                </a>
+              <?php } else {
+
+                  ?>
+                <span class="-ms-3 -mt-4 w-[1.1rem] text-center h-[1.1rem] rounded-full text-sm  text-white">
+                </span>
+                </a>
+                <?php
+                }
+              } catch (\Throwable $th) {
+                //throw $th;
+              } ?>
           </div>
         </div>
       </div>
@@ -607,8 +705,4 @@ require_once "./function.php";
   </nav>
 </header>
 
-<?php require_once "./views/partials/mobileSearchBar.php"?>
-
-
-
-
+<?php require_once "./views/partials/mobileSearchBar.php" ?>

@@ -1,10 +1,15 @@
 <?php require_once "./views/partials/header.php";
  require_once "./views/partials/nav.php";
- require_once "./connection.php";
 
+ if(isset($_GET["id"])){
+    $pageId =$_GET["id"]; 
+  
+  }else{
+    $pageId =1; 
+  }
 ?>
 
-<div class="mx-4 md:mx-12 my-3">
+<div class="mx-4 md:mx-12 my-3" >
     <div class="w-full flex flex-row items-center">
         <p class="text-xl md:block hidden md:ms-6">Manage Users</p>
         <!-- search bar -->
@@ -43,166 +48,117 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 <?php 
+$AllUsers_rs = Database::search("SELECT COUNT(`email`) FROM `user` ");
+$AllUsers = $AllUsers_rs->fetch_assoc();
+if($AllUsers_rs->num_rows){
+    $output = preg_replace( '/[^0-9]/', '', $pageId );
+    if($output){
+      $pageId = $pageId-1;
+      $from = 0;
+      $to = 10;
+      $from = $to * $pageId;
+    }else{
+      $from = 0;
+    $to = 10;
+    }
 
-$manageResult = Database::search("SELECT * FROM `user` LIMIT 0,10");
-
-for ($i=0; $i < $manageResult->num_rows; $i++) { 
-    $manageUsers= $manageResult->fetch_assoc();
-?>
-
-<tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900"><?= $i+1?></div>
-                            
-                            </td>
+$manageResult = Database::search("SELECT * FROM `user` LIMIT $from,$to");
+if($manageResult->num_rows!==0){
+    for ($i=0; $i < $manageResult->num_rows; $i++) { 
+        $manageUsers= $manageResult->fetch_assoc();
+    ?>
+    
+    <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-10 w-10">
-<?php
-$ManageUserProfile = Database::search("SELECT `path` FROM `profile_img` WHERE `user_email`='".$manageUsers["email"]."'");
-$UserProfile = $ManageUserProfile->fetch_assoc();
-
-if($UserProfile["path"]!==null){
-?>
-      <img class=" border object-center object-cover border-gray-300 h-10 w-10 rounded-full"
-                                            src="<?= $UserProfile["path"]?>"
-                                            alt="">
-<?php
+                                    <div class="text-sm text-gray-900"><?= $i+1?></div>
+                                
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                        <?php
+    $ManageUserProfile = Database::search("SELECT path FROM profile_img WHERE user_email='".$manageUsers["email"]."'");
+    $UserProfile = $ManageUserProfile->fetch_assoc();
+    
+    if ($UserProfile && isset($UserProfile["path"])) {
+    ?>
+        <img class="border object-center object-cover border-gray-300 h-10 w-10 rounded-full"
+             src="<?= $UserProfile["path"]?>"
+             alt="">
+    <?php
+    } else {
+    ?>
+        <img class="border object-center object-cover grayscale border-gray-300 h-10 w-10 rounded-full"
+             src="./resources/new_user.png"
+             alt="">
+    <?php
+    }
+    ?>
+                                        </div>
+                                 
+                                    </div>
+                                </td>
+    
+                                <?php 
+                                if($manageUsers["fname"]==!null || $manageUsers["lname"]){
+    ?>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900"><?=  $manageUsers["fname"] ." ".$manageUsers["lname"]?> </div> 
+                                </td>
+    <?php
+                                }else{
+                                    ?>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                 <div class="text-sm ps-10 text-gray-900">-</div> 
+                                     </td>
+                                  <?php
+                                }
+                                
+                                ?>
+    
+    <td id="email" class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"><?= $manageUsers["email"]?></td>
+    
+    
+    
+                              
+    
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?= $manageUsers["mobile"]?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?= $manageUsers["joined_date"]?></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex items-center justify-center">
+                               
+                               
+                                <button id="blockbutton<?= $manageUsers["email"]?>" onclick="<?php if($manageUsers["status_status_id"]==1){?>blockUser('<?= $manageUsers['email'] ?>');<?php }else{?>unblockUser('<?= $manageUsers['email'] ?>');<?php }?>"
+                                        class=" <?php if($manageUsers["status_status_id"]==1){?>hover:bg-red-200 text-red-700 border-red-600 <?php }else{?>hover:bg-green-200 text-green-700 border-green-600<?php }?> inline-flex items-center px-6 py-2 border  text-[16px] font-bold rounded  bg-white ">
+                                        <?php if($manageUsers["status_status_id"]==1){?>
+                                        block<?php
+                                        }else{
+                                            ?>
+                                        unblock<?php
+                                        }      
+                                        ?>
+                            </button>
+                                </td>
+                            </tr>
+    <?php
+    }
+    ?> <!-- More people... -->
+       </tbody>
+          </table>
+         <?php require_once "./views/partials/pagination.php";
+          pagination($AllUsers['COUNT(`email`)'],"manageUsersPagination");
 }else{
     ?>
-      <img class=" border object-center object-cover grayscale border-gray-300 h-10 w-10 rounded-full"
-                                            src="./resources/new_user.png"
-                                            alt="">
-<?php
+    <script>window.location.href = "/manageUsers?id=1"</script><?php
 }
 
-?>
-                                    </div>
-                             
-                                </div>
-                            </td>
-
-                            <?php 
-                            if($manageUsers["fname"]==!null || $manageUsers["lname"]){
-?>
-                              <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900"><?=  $manageUsers["fname"] ." ".$manageUsers["lname"]?> </div> 
-                            </td>
-<?php
-                            }else{
-                                ?>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                             <div class="text-sm ps-10 text-gray-900">-</div> 
-                                 </td>
-                              <?php
-                            }
-                            
-                            ?>
-
-<td id="email" class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"><?= $manageUsers["email"]?></td>
-
-
-
-                          <?php 
-                            if($manageUsers["mobile"]==!null){
-?>
-                              <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900"><?=  $manageUsers["mobile"]?> </div> 
-                            </td>
-<?php
-                            }else{
-                                ?>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                             <div class="text-sm ps-10 text-gray-900">-</div> 
-                                 </td>
-                              <?php
-                            }
-                            
-                            ?>
-                          
-
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?= $manageUsers["joined_date"]?></td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex items-center justify-center">
-                                <button type="button" id="blockbutton" onclick="blockUser();"
-                                    class="inline-flex items-center px-6 py-2 border  border-red-600 text-[16px] font-bold rounded text-red-700 bg-white hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                    Block
-                                </button>
-                            </td>
-                        </tr>
-<?php
 }
-?>
-
-                     
-
-                        <!-- More people... -->
-                    </tbody>
-                </table>
-                <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
-                    <div class="flex flex-1 justify-between sm:hidden">
-                        <a href="#"
-                            class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
-                        <a href="#"
-                            class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
-                    </div>
-                    <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-                        <div>
-                            <p class="text-sm text-gray-700">
-                                Showing
-                                <span class="font-medium">1</span>
-                                to
-                                <span class="font-medium">10</span>
-                                of
-                                <span class="font-medium">97</span>
-                                results
-                            </p>
-                        </div>
-                        <div>
-                            <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-                                <a href="#"
-                                    class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
-                                    <span class="sr-only">Previous</span>
-                                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
-                                <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" -->
-                                <a href="#" aria-current="page"
-                                    class="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">1</a>
-                                <a href="#"
-                                    class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
-                                <a href="#"
-                                    class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
-                                <span
-                                    class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
-                                <a href="#"
-                                    class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">8</a>
-                                <a href="#"
-                                    class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">9</a>
-                                <a href="#"
-                                    class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">10</a>
-                                <a href="#"
-                                    class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
-                                    <span class="sr-only">Next</span>
-                                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+                ?>
             </div>
         </div>
     </div>
 </div>
 <!-- product table start -->
 
-<hr class="mt-5 mb-5">
 <div>
     
 </div>

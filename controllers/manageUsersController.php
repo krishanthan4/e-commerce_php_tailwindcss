@@ -1,16 +1,17 @@
-<?php
+<?php 
+
+if(isset($_POST["user_email"]) && isset($_POST["active"])){
+
+$user_email = $_POST["user_email"];
+$active = intval($_POST["active"]);
 require_once "../connection.php";
 
-$email = $_POST["email"];
-
-
-try {
-    $mangeUsers_rs = Database::search("UPDATE `user` SET `status_status_id`= '2' WHERE `email`='" . $email . "'");
-
-    echo ("success");
-} catch (\Throwable $th) {
-
-    echo ("something went wrong");
+    Database::search("UPDATE `user` SET `status_status_id`='".$active."' WHERE `email`='".$user_email."' ");
+echo("success");
+}else{
+echo("error");
 
 }
+
+
 ?>

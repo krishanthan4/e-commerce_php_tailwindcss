@@ -51,13 +51,13 @@
             <span class="truncate ps-4">Wishlist</span>
         </a>
 
-        <a href="/orderHistory"
-            class="<?= urlis('/orderHistory') ?
+        <a href="/purchasedHistory"
+            class="<?= urlis('/purchasedHistory') ?
                 "text-orange-600 hover:text-orange-700" : "text-gray-900 hover:text-gray-900 " ?> hover:bg-gray-50  group rounded-md px-3 py-2 flex items-center text-sm font-medium"
             aria-current="page">
             <!-- Heroicon name: outline/credit-card -->
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-handbag  <?= urlis('/orderHistory') ?
+                class="bi bi-handbag  <?= urlis('/purchasedHistory') ?
                 "text-orange-600 group-hover:text-orange-700" : "text-gray-400 group-hover:text-gray-500" ?>  flex-shrink-0 -ml-1 mr-4 h-5 w-5"
                 viewBox="0 0 16 16">
                 <path

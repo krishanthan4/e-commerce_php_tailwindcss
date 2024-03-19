@@ -1,7 +1,6 @@
  <?php require_once "./views/partials/header.php";
 require_once "./views/partials/nav.php";
 require_once "./function.php";
-require_once "./connection.php";
 
 $product_id =$_GET["product_id"];
 if(isset($product_id)){
@@ -133,7 +132,7 @@ try {
   $wishlistCheck_rs  =Database::search("SELECT * FROM `wishlist` WHERE `product_id`='".$singleProduct["id"]."' AND `user_email`='".$_SESSION["user"]["email"]."'");
   $wishlistCheck = $wishlistCheck_rs->fetch_assoc();
   
-  if($wishlistCheck["product_id"]){
+  if(isset($wishlistCheck["product_id"]) && $wishlistCheck["product_id"]){
   
   ?>
   <button id="outline_heart" onclick="wishlist('<?= $singleProduct['id'] ?>');"  class="mt-4 hidden text-red-500">
@@ -353,6 +352,7 @@ var_dump("something went wrong");
 require_once "./views/partials/singleproductView/reviews.php";
 require_once "./views/partials/alert.php";
 require_once "./views/partials/singleproductView/relatedProducts.php";
+relatedProduct("Customers also purchased",$singleProduct["category_cat_id"]);
 ?>
   </main>
 </div>

@@ -3,9 +3,17 @@ require_once "./views/partials/nav.php";?>
  <?php 
 try {
   if(isset($_SESSION["user"]) && $_SESSION["user"]){
+    if(isset($_GET["id"])){
+      $pageId =$_GET["id"]; 
+    
+    }else{
+      $pageId =1; 
+    }
     require_once "./views/home.view.php";
      }else{
-    ?>
+ 
+ ?>
+    
      <main>
         <!-- Hero -->
         <div class="flex flex-col border-b border-gray-200 lg:border-0">

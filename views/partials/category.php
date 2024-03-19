@@ -12,7 +12,7 @@ if($result->num_rows!==0){
 for ($x=0; $x < $result->num_rows; $x++) { 
 $category = $result->fetch_assoc();
 ?>
-<a href="#" class="group">
+<a href="/search?query=<?= $category["cat_name"]?>" class="group">
             <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
               <img src="<?= $category["cat_img"]?>" alt="<?= $category["cat_name"] ?>" class="w-full h-full object-center object-cover group-hover:opacity-75">
             </div>

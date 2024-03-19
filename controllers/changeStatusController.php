@@ -1,9 +1,9 @@
 <?php
-include "../connection.php";
+include "../connection2.php";
 
 $product_id = $_GET["id"];
 
-$product_resultSet = Database::search("SELECT * FROM product WHERE id='" . $product_id . "'");
+$product_resultSet = Database::search("SELECT * FROM product WHERE id=?",[$product_id]);
 $product_numRows = $product_resultSet->num_rows;
 
 if ($product_numRows == 1) {
@@ -12,10 +12,10 @@ if ($product_numRows == 1) {
     $status = $product_data["status_status_id"];
 
     if ($status == 1) {
-        Database::iud("UPDATE product SET status_status_id='2' WHERE id='" . $product_id . "'");
+        Database::iud("UPDATE product SET status_status_id='2' WHERE id=?",[$product_id]);
         echo ("deactivated");
     } else if ($status == 2) {
-        Database::iud("UPDATE product SET status_status_id='1' WHERE id='" . $product_id . "'");
+        Database::iud("UPDATE product SET status_status_id='1' WHERE id=?",[$product_id]);
         echo ("activated");
     }
 } else {

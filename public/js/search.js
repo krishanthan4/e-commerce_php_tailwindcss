@@ -32,24 +32,18 @@
       } else if (document.getElementById("MainSearch").value) {
         key = document.getElementById("MainSearch").value;
       }
-  
       if (key) {
         const request = new XMLHttpRequest();
-  
         request.onreadystatechange = () => {
           if (request.status == 200 && request.readyState == 4) {
             const result = JSON.parse(request.responseText);
-  
             if (result.msg == "success") {
               const searchTextMain = document.getElementById("searchTextMain");
               const searchTextSub = document.getElementById("searchTextSub");
-
               searchTextMain.classList.remove("hidden");
               searchTextMain.classList.add("flex");
-             
               // Clear previous search results
               searchTextSub.innerHTML = "";
-  
               for (let index = 0; index < Object.keys(result).length; index++) {
                 let ptext = document.createElement("a");
                 ptext.classList.add("border-b", "cursor-pointer", "hover:text-orange-500", "transition-transform");

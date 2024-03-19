@@ -59,11 +59,8 @@ require_once "./views/partials/nav.php";?>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sandul Tharun</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rs. 41500.00</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">4</td>
-                        
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">4</td> 
                         </tr>
-                     
-
                         <!-- More people... -->
                     </tbody>
                 </table>

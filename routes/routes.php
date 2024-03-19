@@ -10,7 +10,7 @@ return [
     "/checkout"=>"./views/checkout.view.php",
     "/singleProduct"=>"./views/single_product.view.php",
     "/orderDetails"=>"./views/order_details.view.php",
-    "/orderHistory"=>"./views/order_history.view.php",
+    "/purchasedHistory"=>"./views/purchased_history.view.php",
     "/advancedSearch"=>"./views/new_arrivals.view.php",
     "/userProfile"=>"./views/user_profile.view.php",
     "/wishlist"=>"./views/wishlist.view.php",
@@ -28,8 +28,9 @@ return [
     "/adminDashboard"=>"./views/admin/admin_dashboard.view.php",
     "/contactAdmin"=>"./views/contact_admin.view.php",
         
-    
     "/alert"=>"./views/partials/alert.php",
+    "/search"=>"./views/search.view.php",
+
     ];
 
 ?>

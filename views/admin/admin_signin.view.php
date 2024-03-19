@@ -1,6 +1,6 @@
 <?php
  include_once "./views/partials/header.php";
-include_once "./connection.php";
+include_once "./connection2.php";
 ?>
 
 <!-- signIn part start -->
@@ -21,7 +21,7 @@ include_once "./connection.php";
 
  
       <div>
-        <button onclick="signInProcess();" type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Send Verification Code</button>
+        <button onclick="adminSignin();" type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Send Verification Code</button>
       </div>
     </form>
 
@@ -30,6 +30,7 @@ include_once "./connection.php";
     </p>
   </div>
 </div>
+<script src="/public/js/adminSignin.js"></script>
 <!-- signIn Part End -->
 <?php
  include_once "./views/partials/footer.php";

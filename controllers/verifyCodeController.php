@@ -1,6 +1,6 @@
 <?php
 
-include "../connection.php";
+include "../connection2.php";
 
 include "../email_files/SMTP.php";
 include "../email_files/PHPMailer.php";
@@ -14,13 +14,13 @@ if (isset($_GET["email"])) {
 
     $email = $_GET["email"];
 
-    $resultSet = Database::search("SELECT * FROM `user` WHERE `email`='" . $email . "'");
+    $resultSet = Database::search("SELECT * FROM user WHERE email=?", [$email]);
     $num_rows = $resultSet->num_rows;
 
     if ($num_rows == 1) {
 
         $code = uniqid();
-        Database::iud("UPDATE `user` SET `verification_code`='" . $code . "' WHERE email='" . $email . "'");
+        Database::iud("UPDATE user SET verification_code=? WHERE email=?", [$code, $email]);
 
         $mail = new PHPMailer;
         $mail->IsSMTP();
