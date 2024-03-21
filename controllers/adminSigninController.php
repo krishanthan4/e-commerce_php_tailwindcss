@@ -1,38 +1,59 @@
-<?php 
+<?php
 
-require_once "../connection2.php";
+include "../connection2.php";
+
 include "../email_files/SMTP.php";
 include "../email_files/PHPMailer.php";
 include "../email_files/Exception.php";
-use PHPMailer\PHPMailer\PHPMailer;
+
 $config = require_once "../config.php";
 
 
-if($_POST["email"]){
-$checkAdmin_rs = Database::search("SELECT * FROM `admin` WHERE `email`=? ",[$_POST["email"]]);
+use PHPMailer\PHPMailer\PHPMailer;
 
-if($checkAdmin_rs->num_rows!==0){
-    $checkAdmin = $checkAdmin_rs->fetch_assoc();
-    $code = uniqid();
-    Database::iud("UPDATE `admin` SET `vcode`=? WHERE email=?", [$code, $_POST["email"]]);
+$email = $_POST["adminEmail"];
 
-    $mail = new PHPMailer;
-    $mail->IsSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = $config["app_email"];
-    $mail->Password = $config["app_password"];//peejpqmtzhghhqis
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
-    $mail->setFrom($config["app_email"], 'Reset Password');
-    $mail->addReplyTo($email, 'Log Into Admin Account');
-    $mail->addAddress($email);
-    $mail->isHTML(true);
-    $mail->Subject = 'Verification for Signin to Admin Account - eshop';
-    $bodyContent = '<h1 style="color:black;">Your Verification Code is ' . $code . '</h1>';
-    $mail->Body = $bodyContent;
+if (empty($email)) {
+    echo ("Email field should not be empty.");
+} else {
+    $admin_rs = Database::search("SELECT * FROM `admin` WHERE `email`=?",[$email]);
+    $admin_num = $admin_rs->num_rows;
 
-    echo "success";
+    if ($admin_num > 0) {
+
+        $code = uniqid();
+
+        Database::iud("UPDATE `admin` SET `vcode`=? WHERE `email`=? ",[$code, $email]);
+
+        $mail = new PHPMailer;
+        $mail->IsSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $config["app_email"];
+        $mail->Password = $config["app_password"];
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+        $mail->setFrom($config["app_email"], 'Admin Verification');
+        $mail->addReplyTo($email, 'Admin Verification');
+        $mail->addAddress($email);
+        $mail->isHTML(true);
+        $mail->Subject = 'eShop Admin Login Verification Code';
+        $bodyContent = '<h1>Your Verification Code is ' . $code . '</h1>';
+        $mail->Body = $bodyContent;
+
+        if (!$mail->send()) {
+            echo ("Verification code sending failed.");
+        } else {
+            echo ("success");
+        }
+
+    } else {
+        echo ("You are not a valid user.");
+    }
 }
-}
+
+    
+
+ 
+
 ?>

@@ -209,7 +209,7 @@ if(result["msg"]=="success"){
                     "cancel_url": "http://localhost:8000/single_product.view.php?id=1",
                     "notify_url": "http://sample.com/notify",
                     "order_id": result['id'],
-                    "items": result['items'],
+                    "items": result['product_names'],
                     "amount": result["amount"] + ".00",
                     "currency": 'LKR',
                     "hash": result['hash'],

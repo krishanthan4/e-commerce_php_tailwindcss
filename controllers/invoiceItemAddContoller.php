@@ -9,8 +9,8 @@ $products_id = json_decode($_POST["products_id"]);
 $products_qty = json_decode($_POST["products_qty"]);
 $amount = $_POST["amount"];
 
-
-$invoice_rs = Database::iud("INSERT INTO `invoice` (`order_id`,`date`,`total`,`user_email`) VALUES ('".$order_id."','". date("Y-m-d h:i:s")."','".$amount."','".$_SESSION["user"]["email"]."')");
+//status -- 1=orderPlaced ,2=ordersuccess ,shipped=3,4=delivery success,
+$invoice_rs = Database::iud("INSERT INTO `invoice` (`order_id`,`date`,`total`,`status`,`user_email`) VALUES ('".$order_id."','". date("Y-m-d h:i:s")."','".$amount."','1','".$_SESSION["user"]["email"]."')");
 $array = [];
 
 try {

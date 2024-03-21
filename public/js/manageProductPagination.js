@@ -15,7 +15,6 @@ one.innerText = page1;
 two.innerText = page2;
 three.innerText = page3;
 }
-    // Parse the stringified array back to a JavaScript array
 
 });
 

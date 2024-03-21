@@ -23,14 +23,14 @@ $products_qty = json_decode($_POST["products_qty"]);
     $totalAmount = 0;
     $delivery = 0;
     $address = "";
-
+$productNameArray = [];
     // Loop through each product
     foreach ($products_id as $key => $product_id) { 
         $product_qty = $products_qty[$key]; 
         // Fetch product data from the database
         $product_rs = Database::search("SELECT * FROM `product` WHERE `id`='".$products_id[$key]."'");
         $product_data = $product_rs->fetch_assoc();
-
+        $productNameArray[$key]=$product_data["title"];
         // Determine delivery fee based on user's district
         if($user["district_name"] == "Colombo") {
             $delivery += $product_data["delivery_fee_colombo"];
@@ -67,6 +67,7 @@ $products_qty = json_decode($_POST["products_qty"]);
     $array['hash'] = $hash;
     $array['delivery'] = $delivery;
     $array['items'] = $products_id;
+    $array['product_names'] = $productNameArray;
     $array['qty'] = $products_qty;
 
     // Debugging - dump product data
