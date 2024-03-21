@@ -1,6 +1,3 @@
-<?php 
-require_once "./connection.php";
-?>
 <section aria-labelledby="products-heading" class="max-w-2xl mx-auto pt-12 pb-16 px-4 sm:pt-16 sm:pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 id="products-heading" class="text-xl p-3">Categories</h2>
 

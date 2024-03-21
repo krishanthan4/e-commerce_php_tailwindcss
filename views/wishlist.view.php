@@ -4,11 +4,11 @@ require_once "./views/partials/nav.php";
 if (isset ($_SESSION["user"])) {
 
   $watchlist_rs = Database::search("SELECT * FROM `wishlist` INNER JOIN `product` ON 
-  `wishlist`.`product_id`=`product`.`id` INNER JOIN `product_has_color` ON 
-  `product_has_color`.`product_id`=`product`.`id` INNER JOIN `color` ON 
-  `product_has_color`.`color_clr_id`=`color`.`clr_id` INNER JOIN `condition` ON 
-  `product`.`condition_condition_id`=`condition`.`condition_id` INNER JOIN `user` ON 
-  `product`.`user_email`=`user`.`email` WHERE `wishlist`.`user_email`='" . $_SESSION["user"]["email"] . "'");
+  wishlist.product_id=product.id INNER JOIN `product_has_color` ON 
+  product_has_color.product_id=product.id INNER JOIN `color` ON 
+  product_has_color.color_clr_id=color.clr_id INNER JOIN `condition` ON 
+  product.condition_condition_id=condition.condition_id INNER JOIN `user` ON 
+  product.user_email=user.email WHERE wishlist.user_email='" . $_SESSION["user"]["email"] . "'");
 
   $watchlist_num = $watchlist_rs->num_rows;
 
@@ -16,11 +16,9 @@ if (isset ($_SESSION["user"])) {
   ?>
 
   <div class="h-full  ">
-
     <main class="max-w-7xl mx-auto pb-5 lg:py-12 lg:px-2  ">
       <div class="lg:grid lg:grid-cols-12 lg:gap-x-5 ">
         <?php require_once "./views/partials/user_profile_sidebar.php" ?>
-
         <div class="space-y-2 sm:px-6 lg:px-0 lg:col-span-9 h-full ">
           <div class="max-w-7xl mx-auto sm:px-2 lg:px-6   h-full ">
             <div class="max-w-2xl  mx-auto px-4 lg:max-w-4xl lg:px-0">
@@ -28,10 +26,8 @@ if (isset ($_SESSION["user"])) {
               <p class="mt-2 text-sm text-gray-500">Check the status of recent orders, manage returns, and discover
                 similar products.</p>
             </div>
-
             <?php
             if ($watchlist_num == 0) {
-
               ?>
               <div class="col-span-12 lg:col-span-9 border rounded-sm flex justify-center items-center my-2 w-full h-full ">
                 <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
@@ -57,7 +53,6 @@ if (isset ($_SESSION["user"])) {
                 </div>
               </div>
               <?php
-
             } else {
               ?>
               <div class="flex mt-7  flex-col">
@@ -95,205 +90,34 @@ if (isset ($_SESSION["user"])) {
                             </th>
                           </tr>
                         </thead>
-
                         <?php
-                        function colorNameToHex($colorName)
-                        {
-                          $colors = array(
-                            "aliceblue" => "#F0F8FF",
-                            "antiquewhite" => "#FAEBD7",
-                            "aqua" => "#00FFFF",
-                            "aquamarine" => "#7FFFD4",
-                            "azure" => "#F0FFFF",
-                            "beige" => "#F5F5DC",
-                            "bisque" => "#FFE4C4",
-                            "black" => "#000000",
-                            "blanchedalmond" => "#FFEBCD",
-                            "blue" => "#0000FF",
-                            "blueviolet" => "#8A2BE2",
-                            "brown" => "#A52A2A",
-                            "burlywood" => "#DEB887",
-                            "cadetblue" => "#5F9EA0",
-                            "chartreuse" => "#7FFF00",
-                            "chocolate" => "#D2691E",
-                            "coral" => "#FF7F50",
-                            "cornflowerblue" => "#6495ED",
-                            "cornsilk" => "#FFF8DC",
-                            "crimson" => "#DC143C",
-                            "cyan" => "#00FFFF",
-                            "darkblue" => "#00008B",
-                            "darkcyan" => "#008B8B",
-                            "darkgoldenrod" => "#B8860B",
-                            "darkgray" => "#A9A9A9",
-                            "darkgreen" => "#006400",
-                            "darkgrey" => "#A9A9A9",
-                            "darkkhaki" => "#BDB76B",
-                            "darkmagenta" => "#8B008B",
-                            "darkolivegreen" => "#556B2F",
-                            "darkorange" => "#FF8C00",
-                            "darkorchid" => "#9932CC",
-                            "darkred" => "#8B0000",
-                            "darksalmon" => "#E9967A",
-                            "darkseagreen" => "#8FBC8F",
-                            "darkslateblue" => "#483D8B",
-                            "darkslategray" => "#2F4F4F",
-                            "darkslategrey" => "#2F4F4F",
-                            "darkturquoise" => "#00CED1",
-                            "darkviolet" => "#9400D3",
-                            "deeppink" => "#FF1493",
-                            "deepskyblue" => "#00BFFF",
-                            "dimgray" => "#696969",
-                            "dimgrey" => "#696969",
-                            "dodgerblue" => "#1E90FF",
-                            "firebrick" => "#B22222",
-                            "floralwhite" => "#FFFAF0",
-                            "forestgreen" => "#228B22",
-                            "fuchsia" => "#FF00FF",
-                            "gainsboro" => "#DCDCDC",
-                            "ghostwhite" => "#F8F8FF",
-                            "gold" => "#FFD700",
-                            "goldenrod" => "#DAA520",
-                            "gray" => "#808080",
-                            "green" => "#008000",
-                            "greenyellow" => "#ADFF2F",
-                            "grey" => "#808080",
-                            "honeydew" => "#F0FFF0",
-                            "hotpink" => "#FF69B4",
-                            "indianred" => "#CD5C5C",
-                            "indigo" => "#4B0082",
-                            "ivory" => "#FFFFF0",
-                            "khaki" => "#F0E68C",
-                            "lavender" => "#E6E6FA",
-                            "lavenderblush" => "#FFF0F5",
-                            "lawngreen" => "#7CFC00",
-                            "lemonchiffon" => "#FFFACD",
-                            "lightblue" => "#ADD8E6",
-                            "lightcoral" => "#F08080",
-                            "lightcyan" => "#E0FFFF",
-                            "lightgoldenrodyellow" => "#FAFAD2",
-                            "lightgray" => "#D3D3D3",
-                            "lightgreen" => "#90EE90",
-                            "lightgrey" => "#D3D3D3",
-                            "lightpink" => "#FFB6C1",
-                            "lightsalmon" => "#FFA07A",
-                            "lightseagreen" => "#20B2AA",
-                            "lightskyblue" => "#87CEFA",
-                            "lightslategray" => "#778899",
-                            "lightslategrey" => "#778899",
-                            "lightsteelblue" => "#B0C4DE",
-                            "lightyellow" => "#FFFFE0",
-                            "lime" => "#00FF00",
-                            "limegreen" => "#32CD32",
-                            "linen" => "#FAF0E6",
-                            "magenta" => "#FF00FF",
-                            "maroon" => "#800000",
-                            "mediumaquamarine" => "#66CDAA",
-                            "mediumblue" => "#0000CD",
-                            "mediumorchid" => "#BA55D3",
-                            "mediumpurple" => "#9370DB",
-                            "mediumseagreen" => "#3CB371",
-                            "mediumslateblue" => "#7B68EE",
-                            "mediumspringgreen" => "#00FA9A",
-                            "mediumturquoise" => "#48D1CC",
-                            "mediumvioletred" => "#C71585",
-                            "midnightblue" => "#191970",
-                            "mintcream" => "#F5FFFA",
-                            "mistyrose" => "#FFE4E1",
-                            "moccasin" => "#FFE4B5",
-                            "navajowhite" => "#FFDEAD",
-                            "navy" => "#000080",
-                            "oldlace" => "#FDF5E6",
-                            "olive" => "#808000",
-                            "olivedrab" => "#6B8E23",
-                            "orange" => "#FFA500",
-                            "orangered" => "#FF4500",
-                            "orchid" => "#DA70D6",
-                            "palegoldenrod" => "#EEE8AA",
-                            "palegreen" => "#98FB98",
-                            "paleturquoise" => "#AFEEEE",
-                            "palevioletred" => "#DB7093",
-                            "papayawhip" => "#FFEFD5",
-                            "peachpuff" => "#FFDAB9",
-                            "peru" => "#CD853F",
-                            "pink" => "#FFC0CB",
-                            "plum" => "#DDA0DD",
-                            "powderblue" => "#B0E0E6",
-                            "purple" => "#800080",
-                            "rebeccapurple" => "#663399",
-                            "red" => "#FF0000",
-                            "rosybrown" => "#BC8F8F",
-                            "royalblue" => "#4169E1",
-                            "saddlebrown" => "#8B4513",
-                            "salmon" => "#FA8072",
-                            "sandybrown" => "#F4A460",
-                            "seagreen" => "#2E8B57",
-                            "seashell" => "#FFF5EE",
-                            "sienna" => "#A0522D",
-                            "silver" => "#C0C0C0",
-                            "skyblue" => "#87CEEB",
-                            "slateblue" => "#6A5ACD",
-                            "slategray" => "#708090",
-                            "slategrey" => "#708090",
-                            "snow" => "#FFFAFA",
-                            "springgreen" => "#00FF7F",
-                            "steelblue" => "#4682B4",
-                            "tan" => "#D2B48C",
-                            "teal" => "#008080",
-                            "thistle" => "#D8BFD8",
-                            "tomato" => "#FF6347",
-                            "turquoise" => "#40E0D0",
-                            "violet" => "#EE82EE",
-                            "wheat" => "#F5DEB3",
-                            "white" => "#FFFFFF",
-                            "whitesmoke" => "#F5F5F5",
-                            "yellow" => "#FFFF00",
-                            "yellowgreen" => "#9ACD32",
-
-                          );
-
-                          $colorName = strtolower($colorName);
-
-
-                          return isset ($colors[$colorName]) ? $colors[$colorName] : "#000000";
-                        }
                         for ($x = 0; $x < $watchlist_num; $x++) {
                           $watchlist_data = $watchlist_rs->fetch_assoc();
                           $list_id = $watchlist_data["w_id"];
                           $colorName = $watchlist_data["clr_name"];
                           $product_id = $watchlist_data["product_id"];
-                          $hexColor = colorNameToHex($colorName);
-
                           ?>
                           <tbody class="bg-white divide-y divide-gray-200">
                             <tr>
-
                               <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                   <div class="flex-shrink-0 h-10 w-10">
                                     <?php
-
-
-                                    $img_rs = Database::search("SELECT * FROM product_img WHERE product_id='" . $product_id . "'");
-                                    $img_data = $img_rs->fetch_assoc();
-
-                                    ?>
+                                    $img_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $product_id . "'");
+                                    $img_data = $img_rs->fetch_assoc(); ?>
                                     <img class="h-10 w-10 rounded-full" src="<?php echo $img_data["img_path"]; ?>" alt="">
                                   </div>
                                   <div class="ml-4">
-
                                   </div>
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-900">
                                   <?php echo $watchlist_data["title"]; ?>
                                 </div>
-
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap ">
                                 <div
-                                  class=" w-12 h-8 overflow-hidden flex justify-center items-center border border-black cursor-pointer">
-                                  <input type="color" class="w-full h-[32px] border-white p-0 m-0 cursor-pointer"
-                                    value="<?php echo $hexColor; ?>" disabled />
+                                  class=" h-8 w-8 overflow-hidden flex justify-center items-center border bg-<?= strtolower($colorName)?>-500 rounded-full cursor-pointer">
                                 </div>
                               </td>
 
@@ -336,7 +160,7 @@ if (isset ($_SESSION["user"])) {
 
                                 <?php
                                 if (isset ($_SESSION["user"])) {
-                                  $cart_rs = Database::search("SELECT * FROM cart WHERE user_email='" . $_SESSION["user"]["email"] . "' AND product_id='" . $product_id . "'");
+                                  $cart_rs = Database::search("SELECT * FROM `cart` WHERE `user_email`='" . $_SESSION["user"]["email"] . "' AND `product_id`='" . $product_id . "'");
                                   $cart_num = $cart_rs->num_rows;
                                   if ($cart_num == 1) {
                                     ?>
@@ -381,12 +205,17 @@ if (isset ($_SESSION["user"])) {
                           <?php
 
                         }
+
                         ?>
+
+
+
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
+
               <?php
             }
             ?>
@@ -394,11 +223,16 @@ if (isset ($_SESSION["user"])) {
         </div>
     </main>
   </div>
+
   <?php
+
+
+
+
 } else {
   ?>
   <script>window.location.href = "/";</script>
-<?php
+  <?php
 }
 
 

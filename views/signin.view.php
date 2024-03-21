@@ -3,6 +3,7 @@ include_once "./views/partials/header.php";
 include_once "./connection.php";
 ?>
 
+<link rel="stylesheet" href="./public/css/style.css">
 <!-- signIn part start -->
 
 
@@ -13,24 +14,27 @@ include_once "./connection.php";
     <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
   </div>
   <?php
-                    $email = "";
-                    $password = "";
 
-                    if (isset($_COOKIE["email"])) {
-                        $email = $_COOKIE["email"];
-                    }
+  $email = "";
+  $password = "";
 
-                    if (isset($_COOKIE["password"])) {
-                        $password = $_COOKIE["password"];
-                    }
+  if (isset ($_COOKIE["email"])) {
+    $email = $_COOKIE["email"];
+  }
 
-                    ?>
+  if (isset ($_COOKIE["password"])) {
+    $password = $_COOKIE["password"];
+  }
+
+
+
+  ?>
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm space-y-6">
 
     <div>
       <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
       <div class="mt-2">
-        <input required id="email" name="email" type="email" autocomplete="email"  value="<?php echo $email; ?>"
+        <input id="email" name="email" type="email" autocomplete="email" value="<?php echo $email; ?>" required
           class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
       </div>
     </div>
@@ -39,25 +43,32 @@ include_once "./connection.php";
       <div class="flex items-center justify-between">
         <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
         <div class="text-sm">
-          <div onclick="forgotPassword();" class="font-semibold cursor-pointer text-indigo-600 hover:text-indigo-500">Forgot password?</div>
+          <div onclick="forgotPassword();" class="font-semibold cursor-pointer text-indigo-600 hover:text-indigo-500">
+            Forgot password?</div>
         </div>
       </div>
       <div class="mt-2">
-        <input required id="password" name="password" type="password" autocomplete="current-password"  value="<?php echo $password ?>"
+        <input id="password" name="password" type="password" autocomplete="current-password" required
+          value="<?php echo $password ?>"
           class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
       </div>
     </div>
-
     <div class="flex">
-                                <div class="checkbox-wrapper-33 mt-2   flex flex-col items-center justify-center gap-2">
-                                    <label class="checkbox ">
-                                 
-                                            <input id="rememberMe" type="checkbox" value="" class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500  focus:ring-1 ">
-                                    </label>
-                                </div>
-                                <label class="block text-sm font-medium leading-6 text-gray-900 ">Remember
-                                    Me</label>
-                            </div>
+      <div class="checkbox-wrapper-33 mt-2">
+        <label class="checkbox">
+          <input class="checkbox__trigger visuallyhidden" type="checkbox" id="rememberMe" />
+          <span class="checkbox__symbol">
+            <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 14l8 7L24 7"></path>
+            </svg>
+          </span>
+
+        </label>
+      </div>
+      <label class="block text-sm font-medium leading-6 text-gray-900 mt-2">Remember
+        Me</label>
+    </div>
 
     <div>
       <button onclick="signIn();"
@@ -78,7 +89,7 @@ include_once "./connection.php";
 <!-- signIn Part End -->
 
 <!-- alert model -->
-    <?php require_once "./views/partials/alert.php"; ?>
+<?php require_once "./views/partials/alert.php"; ?>
 <!--alert model -->
 
 <!-- forgotPassword Model -->

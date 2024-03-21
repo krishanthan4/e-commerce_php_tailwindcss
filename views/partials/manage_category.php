@@ -15,13 +15,8 @@
 </div>
 
 </div>
-
-
     <div class="grid grid-cols-3 w-full  gap-3">
-
-
 <div class="min-w-sm p-3 bg-gray-100 border border-gray-200 rounded-lg flex flex-row gap-3 justify-center items-center shadow">
-
 <a href="#">
     <h5 class=" text-xl tracking-tight text-gray-900 ">Mobile</h5>
 </a>
